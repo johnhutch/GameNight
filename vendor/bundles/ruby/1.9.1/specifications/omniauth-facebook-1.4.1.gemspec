@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["mark@mkdynamic.co.uk"]
   s.homepage = "https://github.com/mkdynamic/omniauth-facebook"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.24"
   s.summary = "Facebook strategy for OmniAuth"
 
   if s.respond_to? :specification_version then

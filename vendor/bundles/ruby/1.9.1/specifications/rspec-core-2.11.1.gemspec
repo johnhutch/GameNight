@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "rspec"
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.24"
   s.summary = "rspec-core-2.11.1"
 
   if s.respond_to? :specification_version then

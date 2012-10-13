@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/railsjedi/rails_config"
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.24"
   s.summary = "Provides a Settings helper for rails3 that reads from config/settings.yml"
 
   if s.respond_to? :specification_version then

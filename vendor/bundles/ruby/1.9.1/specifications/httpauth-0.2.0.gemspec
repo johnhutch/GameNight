@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/Manfred/HTTPauth"
   s.rdoc_options = ["--charset=utf-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.24"
   s.summary = "HTTPauth is a library supporting the full HTTP Authentication protocol as specified in RFC 2617; both Digest Authentication and Basic Authentication."
 
   if s.respond_to? :specification_version then

@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/iain/formalize-rails"
   s.require_paths = ["lib"]
   s.rubyforge_project = "formalize-rails"
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.24"
   s.summary = "Use Formalize with the asset pipeline"
 
   if s.respond_to? :specification_version then

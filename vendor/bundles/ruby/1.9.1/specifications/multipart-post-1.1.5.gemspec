@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/nicksieger/multipart-post"
   s.require_paths = ["lib"]
   s.rubyforge_project = "caldersphere"
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.24"
   s.summary = "A multipart form post accessory for Net::HTTP."
 
   if s.respond_to? :specification_version then

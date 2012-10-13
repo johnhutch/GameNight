@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.files = ["extconf.rb"]
   s.homepage = "http://github.com/thoughtbot/capybara-webkit"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.24"
   s.summary = "Headless Webkit driver for Capybara"
 
   if s.respond_to? :specification_version then

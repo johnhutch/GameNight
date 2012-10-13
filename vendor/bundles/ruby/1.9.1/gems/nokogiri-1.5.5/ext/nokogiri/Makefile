@@ -12,11 +12,11 @@ ECHO = $(ECHO1:0=@echo)
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
-hdrdir = /Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
-arch_hdrdir = /Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/$(arch)
+topdir = /Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+hdrdir = /Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+arch_hdrdir = /Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/$(arch)
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/Users/paris/.rvm/rubies/ruby-1.9.3-p194
+prefix = $(DESTDIR)/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
@@ -53,7 +53,7 @@ vendorarchdir = $(vendorlibdir)/$(sitearch)
 
 NULLCMD = :
 
-CC = gcc
+CC = clang
 CXX = g++
 LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
@@ -67,10 +67,10 @@ cflags   =  $(optflags) $(debugflags) $(warnflags)
 optflags = -O3
 debugflags = -ggdb
 warnflags = -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration
-CFLAGS   = -fno-common $(cflags)  -fno-common -pipe  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline $(ARCH_FLAG)
+CFLAGS   = -fno-common $(cflags)  -fno-common -pipe  -g -DXP_UNIX $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS = -DHAVE_XMLHASFEATURE -DHAVE_XMLFIRSTELEMENTCHILD -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETPARSERSTRUCTUREDERRORS -I/usr/local/Cellar/libxml2/2.8.0/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/libxml2 -I/opt/local/include -I/usr/local/include -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include -I/usr/include -I/usr/include/libxml2 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
+CPPFLAGS = -DHAVE_XMLHASFEATURE -DHAVE_XMLFIRSTELEMENTCHILD -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETPARSERSTRUCTUREDERRORS -I/usr/local/Cellar/libxml2/2.8.0/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/libxml2 -I/opt/local/include -I/usr/local/include -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include -I/usr/include -I/usr/include/libxml2 -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
 CXXFLAGS = $(CFLAGS) $(cxxflags)
 ldflags  = -L. -L/usr/local/lib
 dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -Wl,-flat_namespace
@@ -84,10 +84,10 @@ EXEEXT =
 RUBY_BASE_NAME = ruby
 RUBY_INSTALL_NAME = ruby
 RUBY_SO_NAME = ruby.1.9.1
-arch = x86_64-darwin12.2.0
+arch = x86_64-darwin12.0.0
 sitearch = $(arch)
 ruby_version = 1.9.1
-ruby = /Users/paris/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
+ruby = /Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
@@ -102,8 +102,8 @@ COPY = cp
 
 preload = 
 
-libpath = . $(libdir) /usr/local/Cellar/libxml2/2.8.0/lib /opt/local/lib /usr/local/lib /Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib /usr/lib
-LIBPATH =  -L. -L$(libdir) -L/usr/local/Cellar/libxml2/2.8.0/lib -L/opt/local/lib -L/usr/local/lib -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L/usr/lib
+libpath = . $(libdir) /usr/local/Cellar/libxml2/2.8.0/lib /opt/local/lib /usr/local/lib /Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib /usr/lib /Users/johnhutch/.rvm/usr/lib
+LIBPATH =  -L. -L$(libdir) -L/usr/local/Cellar/libxml2/2.8.0/lib -L/opt/local/lib -L/usr/local/lib -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/usr/lib -L/Users/johnhutch/.rvm/usr/lib
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -124,8 +124,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/paris/Sites/r12-team-105/vendor/bundles/ruby/1.9.1/gems/nokogiri-1.5.5/lib$(target_prefix)
-RUBYARCHDIR = /Users/paris/Sites/r12-team-105/vendor/bundles/ruby/1.9.1/gems/nokogiri-1.5.5/lib$(target_prefix)
+RUBYLIBDIR = /Users/johnhutch/Sites/r12-team-105/vendor/bundles/ruby/1.9.1/gems/nokogiri-1.5.5/lib$(target_prefix)
+RUBYARCHDIR = /Users/johnhutch/Sites/r12-team-105/vendor/bundles/ruby/1.9.1/gems/nokogiri-1.5.5/lib$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 

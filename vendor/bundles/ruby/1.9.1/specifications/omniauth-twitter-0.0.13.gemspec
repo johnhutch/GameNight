@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/arunagw/omniauth-twitter"
   s.require_paths = ["lib"]
   s.rubyforge_project = "omniauth-twitter"
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.24"
   s.summary = "OmniAuth strategy for Twitter"
 
   if s.respond_to? :specification_version then
