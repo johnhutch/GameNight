@@ -1,4 +1,5 @@
 Tinder::Application.routes.draw do
+
     match '/auth/:provider/callback' => 'authentications#create'
 
     resources :authentications
@@ -21,6 +22,7 @@ Tinder::Application.routes.draw do
         end
         resources :roles 
     end
+    resources :friends
 
     # content routes
     match "/admin" => "contents#admin", :as => :admin
