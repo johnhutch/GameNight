@@ -25,7 +25,9 @@ en:
     comment_created:        "Comment was successfully created."
     comment_updated:        "Comment was successfully updated."
     comment_problem:        "There was a problem saving your comment."
+    friend_request_sent:    "Friend request sent."
   links:
     add_a_photo:            "Add a photo"
     forgot_password:        "Forgot my password"
     signup_signin:          "Sign up / Sign in"
+    request_friend:         "Send friend request"
