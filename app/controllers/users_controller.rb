@@ -37,6 +37,10 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  def games
+    @user = User.find(params[:id])
+  end
   
   # DELETE /videos/1
   # DELETE /videos/1.xml
