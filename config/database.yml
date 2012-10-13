@@ -1,5 +1,5 @@
 defaults: &defaults
-  adapter: postgresql 
+  adapter: mysql
   username: tinder
   password: 
   host: localhost

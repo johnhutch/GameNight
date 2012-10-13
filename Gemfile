@@ -9,7 +9,8 @@ gem 'uglifier', '>= 1.2.6'
 end
 
 gem 'jquery-rails', '~> 2.0.2'
-gem 'pg'
+#gem 'pg'
+gem 'mysql'
 gem 'capistrano'
 gem 'json'
 
