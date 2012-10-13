@@ -10,3 +10,7 @@
 	<% end %>
 	</ul>
 <% end %>
+
+<% if user_signed_in? && (current_user == @user) %>
+	<%= render "games/form" %>
+<% end %>
