@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/fractaloop/libv8"
   s.require_paths = ["lib"]
   s.rubyforge_project = "libv8"
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "Distribution of the V8 JavaScript engine"
 
   if s.respond_to? :specification_version then

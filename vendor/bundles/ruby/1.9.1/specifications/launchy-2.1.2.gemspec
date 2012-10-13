@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/copiousfreetime/launchy"
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "Launchy is helper class for launching cross-platform applications in a fire and forget manner."
 
   if s.respond_to? :specification_version then

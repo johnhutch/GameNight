@@ -12,11 +12,11 @@ ECHO = $(ECHO1:0=@echo)
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
-hdrdir = /Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
-arch_hdrdir = /Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/$(arch)
+topdir = /Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+hdrdir = /Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+arch_hdrdir = /Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/$(arch)
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194
+prefix = $(DESTDIR)/Users/paris/.rvm/rubies/ruby-1.9.3-p194
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
@@ -53,7 +53,7 @@ vendorarchdir = $(vendorlibdir)/$(sitearch)
 
 NULLCMD = :
 
-CC = clang
+CC = gcc
 CXX = g++
 LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
@@ -70,7 +70,7 @@ warnflags = -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-m
 CFLAGS   = -fno-common $(cflags)  -fno-common -pipe $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS =  -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
+CPPFLAGS =  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
 CXXFLAGS = $(CFLAGS) $(cxxflags)
 ldflags  = -L. -L/usr/local/lib
 dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -Wl,-flat_namespace
@@ -84,10 +84,10 @@ EXEEXT =
 RUBY_BASE_NAME = ruby
 RUBY_INSTALL_NAME = ruby
 RUBY_SO_NAME = ruby.1.9.1
-arch = x86_64-darwin12.0.0
+arch = x86_64-darwin12.2.0
 sitearch = $(arch)
 ruby_version = 1.9.1
-ruby = /Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
+ruby = /Users/paris/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
@@ -102,8 +102,8 @@ COPY = cp
 
 preload = 
 
-libpath = . $(libdir) /Users/johnhutch/.rvm/usr/lib
-LIBPATH =  -L. -L$(libdir) -L/Users/johnhutch/.rvm/usr/lib
+libpath = . $(libdir)
+LIBPATH =  -L. -L$(libdir)
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -124,8 +124,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/johnhutch/Sites/r12-team-105/vendor/bundles/ruby/1.9.1/gems/redcarpet-2.2.1/lib$(target_prefix)
-RUBYARCHDIR = /Users/johnhutch/Sites/r12-team-105/vendor/bundles/ruby/1.9.1/gems/redcarpet-2.2.1/lib$(target_prefix)
+RUBYLIBDIR = /Users/paris/Sites/r12-team-105/vendor/bundles/ruby/1.9.1/gems/redcarpet-2.2.1/lib$(target_prefix)
+RUBYARCHDIR = /Users/paris/Sites/r12-team-105/vendor/bundles/ruby/1.9.1/gems/redcarpet-2.2.1/lib$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 

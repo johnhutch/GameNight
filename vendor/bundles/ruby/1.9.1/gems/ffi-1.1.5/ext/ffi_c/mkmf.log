@@ -1,7 +1,7 @@
 package configuration for libffi is not found
 have_header: checking for ffi.h... -------------------- no
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib     -lruby.1.9.1  -lpthread -ldl -lobjc "
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib     -lruby.1.9.1  -lpthread -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -9,11 +9,8 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -E -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe  conftest.c -o conftest.i"
-conftest.c:3:10: fatal error: 'ffi.h' file not found
-#include <ffi.h>
-         ^
-1 error generated.
+"gcc -E -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe  conftest.c -o conftest.i"
+conftest.c:3:17: error: ffi.h: No such file or directory
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -25,11 +22,8 @@ checked program was:
 
 find_header: checking for ffi.h in /usr/local/include,/usr/include/ffi... -------------------- yes
 
-"clang -E -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe  conftest.c -o conftest.i"
-conftest.c:3:10: fatal error: 'ffi.h' file not found
-#include <ffi.h>
-         ^
-1 error generated.
+"gcc -E -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe  conftest.c -o conftest.i"
+conftest.c:3:17: error: ffi.h: No such file or directory
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -37,11 +31,8 @@ checked program was:
 3: #include <ffi.h>
 /* end */
 
-"clang -E -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe -I/usr/local/include conftest.c -o conftest.i"
-conftest.c:3:10: fatal error: 'ffi.h' file not found
-#include <ffi.h>
-         ^
-1 error generated.
+"gcc -E -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe -I/usr/local/include conftest.c -o conftest.i"
+conftest.c:3:17: error: ffi.h: No such file or directory
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -49,7 +40,7 @@ checked program was:
 3: #include <ffi.h>
 /* end */
 
-"clang -E -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe -I/usr/include/ffi conftest.c -o conftest.i"
+"gcc -E -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe -I/usr/include/ffi conftest.c -o conftest.i"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -61,7 +52,7 @@ checked program was:
 
 have_library: checking for ffi_call() in -lffi... -------------------- yes
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib     -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib     -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -77,11 +68,11 @@ checked program was:
 
 have_func: checking for ffi_prep_closure()... -------------------- yes
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
-conftest.c:5:53: error: use of undeclared identifier 'ffi_prep_closure'
-int t() { void ((*volatile p)()); p = (void ((*)()))ffi_prep_closure; return 0; }
-                                                    ^
-1 error generated.
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘ffi_prep_closure’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -91,11 +82,9 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))ffi_prep_closure; return 0; }
 /* end */
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
-conftest.c:5:11: warning: implicit declaration of function 'ffi_prep_closure' is invalid in C99 [-Wimplicit-function-declaration]
-int t() { ffi_prep_closure(); return 0; }
-          ^
-1 warning generated.
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:5: warning: implicit declaration of function ‘ffi_prep_closure’
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -109,11 +98,11 @@ checked program was:
 
 have_func: checking for ffi_raw_call()... -------------------- no
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
-conftest.c:5:53: error: use of undeclared identifier 'ffi_raw_call'
-int t() { void ((*volatile p)()); p = (void ((*)()))ffi_raw_call; return 0; }
-                                                    ^
-1 error generated.
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘ffi_raw_call’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -123,16 +112,14 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))ffi_raw_call; return 0; }
 /* end */
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
-conftest.c:5:11: warning: implicit declaration of function 'ffi_raw_call' is invalid in C99 [-Wimplicit-function-declaration]
-int t() { ffi_raw_call(); return 0; }
-          ^
-1 warning generated.
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:5: warning: implicit declaration of function ‘ffi_raw_call’
 Undefined symbols for architecture x86_64:
   "_ffi_raw_call", referenced from:
-      _t in conftest-Gpl1K6.o
+      _t in ccgiZIPz.o
 ld: symbol(s) not found for architecture x86_64
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+collect2: ld returned 1 exit status
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -146,7 +133,7 @@ checked program was:
 
 have_func: checking for rb_thread_blocking_region()... -------------------- yes
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -160,7 +147,7 @@ checked program was:
 
 have_func: checking for ruby_native_thread_p()... -------------------- yes
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -174,11 +161,11 @@ checked program was:
 
 have_func: checking for rb_thread_call_with_gvl()... -------------------- yes
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
-conftest.c:5:53: error: use of undeclared identifier 'rb_thread_call_with_gvl'
-int t() { void ((*volatile p)()); p = (void ((*)()))rb_thread_call_with_gvl; return 0; }
-                                                    ^
-1 error generated.
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘rb_thread_call_with_gvl’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -188,11 +175,9 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))rb_thread_call_with_gvl; return 0; }
 /* end */
 
-"clang -o conftest -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.0.0 -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -I/Users/johnhutch/.rvm/usr/include -I/opt/X11/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  -I/opt/X11/include  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/johnhutch/.rvm/rubies/ruby-1.9.3-p194/lib -L/Users/johnhutch/.rvm/usr/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
-conftest.c:5:11: warning: implicit declaration of function 'rb_thread_call_with_gvl' is invalid in C99 [-Wimplicit-function-declaration]
-int t() { rb_thread_call_with_gvl(); return 0; }
-          ^
-1 warning generated.
+"gcc -o conftest -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-darwin12.2.0 -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/Users/paris/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/include/ffi -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE    -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/paris/.rvm/rubies/ruby-1.9.3-p194/lib -L. -L/usr/local/lib    -lffi  -lruby.1.9.1 -lffi  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:5: warning: implicit declaration of function ‘rb_thread_call_with_gvl’
 checked program was:
 /* begin */
 1: #include "ruby.h"

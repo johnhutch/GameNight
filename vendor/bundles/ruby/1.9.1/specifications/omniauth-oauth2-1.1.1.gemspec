@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = ["michael@intridea.com"]
   s.homepage = "https://github.com/intridea/omniauth-oauth2"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "An abstract OAuth2 strategy for OmniAuth."
 
   if s.respond_to? :specification_version then

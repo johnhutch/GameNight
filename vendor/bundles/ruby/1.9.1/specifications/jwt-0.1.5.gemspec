@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Jwt", "--main", "README.md"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "jwt"
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "JSON Web Token implementation in Ruby"
 
   if s.respond_to? :specification_version then

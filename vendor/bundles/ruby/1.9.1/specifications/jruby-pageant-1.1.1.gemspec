@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = ["arturas.slajus@gmail.com"]
   s.homepage = "http://github.com/arturaz/jruby-pageant"
   s.require_paths = ["lib-fake"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "jruby-pageant allows Pageant access on JRuby + Windows"
 
   if s.respond_to? :specification_version then

@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["-x", "ext", "--main", "README.rdoc"]
   s.require_paths = ["lib", "ext"]
   s.rubyforge_project = "ffi"
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "Ruby-FFI is a ruby extension for programmatically loading dynamic libraries, binding functions within them, and calling those functions from Ruby code"
 
   if s.respond_to? :specification_version then

@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.licenses = ["Artistic 2.0"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "sysutils"
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "An interface for providing process table information"
 
   if s.respond_to? :specification_version then

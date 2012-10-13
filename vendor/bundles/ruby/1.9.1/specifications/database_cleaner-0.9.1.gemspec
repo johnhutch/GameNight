@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.files = ["LICENSE", "README.textile", "TODO"]
   s.homepage = "http://github.com/bmabey/database_cleaner"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "Strategies for cleaning databases.  Can be used to ensure a clean state for testing."
 
   if s.respond_to? :specification_version then

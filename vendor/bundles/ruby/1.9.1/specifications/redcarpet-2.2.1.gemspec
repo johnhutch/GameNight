@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.files = ["bin/redcarpet", "COPYING", "ext/redcarpet/extconf.rb"]
   s.homepage = "http://github.com/vmg/redcarpet"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "Markdown that smells nice"
 
   if s.respond_to? :specification_version then
