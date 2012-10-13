@@ -56,6 +56,7 @@ class Ability
                         cannot :manage, :all
                         can [:show, :index], Post 
                         can [:show, :index], Photo
+                        can :games, User
                         can :front, Content
     end
   end
