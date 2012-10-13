@@ -20,6 +20,7 @@ Tinder::Application.routes.draw do
         member do
             get :games
             put :add_game
+            get :friend_request
         end
         resources :roles
     end

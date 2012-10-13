@@ -15,6 +15,10 @@ FactoryGirl.define do
     factory :uploader_role do
       name 'uploader'
     end
+
+    factory :friend_role do
+      name 'friend'
+    end
   end
 
   sequence(:gamename) { |n| "Board Game #{n}"}
@@ -53,6 +57,12 @@ FactoryGirl.define do
       name { generate(:name) }
       email
       after(:create) { |user| user.roles << FactoryGirl.create(:commenter_role) }
+    end
+
+    factory :friend, :class => User do
+      name
+      email
+      after(:create) { |user| user.roles << FactoryGirl.create(:friend_role) }
     end
 
     factory :author_commenter, :class => User do
