@@ -29,6 +29,7 @@ gem 'rails_config'
 group :development, :test do
     gem 'sqlite3'
     gem 'rspec-rails'
+    gem 'webrick', '1.3.1'
 end
 
 group :test do
