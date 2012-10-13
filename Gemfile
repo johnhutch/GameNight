@@ -8,9 +8,10 @@ gem 'coffee-rails', '~> 3.2.2'
 gem 'uglifier', '>= 1.2.6'
 end
 
+gem 'therubyracer'
 gem 'jquery-rails', '~> 2.0.2'
 #gem 'pg'
-gem 'mysql'
+gem 'mysql2'
 gem 'capistrano'
 gem 'json'
 

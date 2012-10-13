@@ -1,4 +1,4 @@
-app_name: Tinder
+app_name: Game Night
 front_words:    "Be sure to copy /config/settings.yml to /config/settings.local.yml and inserts your secret keys"
 admin_user:
     email:              "johnhutch+admin@gmail.com"
