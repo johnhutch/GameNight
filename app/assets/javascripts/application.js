@@ -6,6 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require jquery.formalize
 //= require jquery_nested_form
+//= require autocomplete-rails
 //= require_tree .

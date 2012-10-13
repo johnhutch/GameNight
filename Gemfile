@@ -26,6 +26,8 @@ gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 gem 'rails_config'
 
+gem "rails3-jquery-autocomplete"
+
 group :development, :test do
     gem 'sqlite3'
     gem 'rspec-rails'
