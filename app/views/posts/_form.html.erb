@@ -16,8 +16,8 @@
     <%= f.text_field :title %>
   </div>
   
-  <%= f.fields_for :photos do |p| %>
-    <%= render :partial => 'photo_fields', :locals => { :p => p } %>
+  <%= f.fields_for :photos do |builder| %>
+    <%= render 'photo_fields', p: builder %>
   <% end %>
   <div class="add button"><%= f.link_to_add "Add a photo", :photos %></div>
 
