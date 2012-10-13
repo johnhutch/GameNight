@@ -9,6 +9,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def friend_request
+    @user = User.find(params[:id])
+    current_user.friends << @user
+
+    respond_to do |format|
+        format.html { redirect_to(@user, :notice => t('flash.friend_request_sent'))}
+        format.xml  { head :ok }
+    end
+  end
+
   def edit
     @user = User.find(params[:id])
     @all_roles = Role.find(:all)

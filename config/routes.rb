@@ -19,10 +19,10 @@ Tinder::Application.routes.draw do
     resources :users do
         member do
             get :games
+            get :friend_request
         end
         resources :roles 
     end
-    resources :friends
 
     # content routes
     match "/admin" => "contents#admin", :as => :admin

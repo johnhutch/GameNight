@@ -51,11 +51,19 @@ class Ability
                         end
                         can :show, [Post]
                         can :front, Content
+
+    elsif user.role? :friend
+                        can :read, :all
+                        cannot :manage, :all
+                        can :show, Post
+                        can :front, Content
+                        can [:show, :friend_request], User
     
     else              # guest
                         cannot :manage, :all
                         can [:show, :index], Post 
                         can [:show, :index], Photo
+                        can [:show], User
                         can :front, Content
     end
   end
