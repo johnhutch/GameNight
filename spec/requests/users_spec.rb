@@ -40,4 +40,12 @@ describe "Users" do
       page.should have_content( I18n.t('devise.registrations.signed_up') )
     end
   end
+
+  describe "GET /users/:id/games" do
+    it "list users games" do
+      user = FactoryGirl.create(:gamer)
+      visit games_user_path(user)
+      page.should have_content(user.game.first.name)
+    end
+  end
 end

@@ -17,6 +17,12 @@ FactoryGirl.define do
     end
   end
 
+  sequence(:gamename) { |n| "Board Game #{n}"}
+
+  factory :game do
+    name = gamename
+  end
+
   sequence(:name) { |n| "Joe User #{n}"}
   sequence(:email) { |n| "johnhutch+user#{n}@gmail.com"}
 
@@ -57,6 +63,16 @@ FactoryGirl.define do
         user.roles << FactoryGirl.create(:commenter_role) 
       }
     end
+
+    factory :gamer, :class => User do
+      name
+      email
+      after(:create) {|user|
+        user.games << FactoryGirl.create(:game)
+        user.games << FactoryGirl.create(:game)
+        user.games << FactoryGirl.create(:game)
+     }
+    end
   end
   
   sequence(:title) { |n| "Post Title #{n}"}
@@ -86,4 +102,5 @@ FactoryGirl.define do
     caption
     image { Rack::Test::UploadedFile.new("#{Rails.root}/spec/samples/mark.png", 'image/png', true) }
   end
+
 end
