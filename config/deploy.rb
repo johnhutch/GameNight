@@ -28,7 +28,7 @@ require 'bundler/capistrano'
 ##                                         ##
 #############################################
 
-GITHUB_REPOSITORY_NAME = 'https://github.com/railsrumble/r12-team-105.git'
+GITHUB_REPOSITORY_NAME = 'r12-team-105'
 LINODE_SERVER_HOSTNAME = 'gamenight.r12.railsrumble.com'
 
 #############################################
