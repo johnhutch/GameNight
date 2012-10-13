@@ -12,6 +12,7 @@ gem 'therubyracer'
 gem 'jquery-rails', '~> 2.0.2'
 #gem 'pg'
 gem 'mysql'
+gem 'activerecord-mysql2-adapter'
 gem 'capistrano'
 gem 'json'
 
