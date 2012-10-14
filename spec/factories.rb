@@ -79,6 +79,7 @@ FactoryGirl.define do
       email
       after(:create) { |user|
         user.roles << FactoryGirl.create(:friend_role)
+        user.roles << FactoryGirl.create(:author_role)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)
