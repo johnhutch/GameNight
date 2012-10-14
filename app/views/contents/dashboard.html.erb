@@ -1,4 +1,8 @@
 <section id="games" class="games">
+    <% if current_user.nights.nil? %>
+        <h3>You have no game nights set up.</h3>
+    <% end %>
+
     <%= link_to t('links.create_night'), add_new_nights_path, :class => "button add_new_night", :id => "add_new_night" %>
 
     <% for night in current_user.nights do %>

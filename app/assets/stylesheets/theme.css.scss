@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {color: #999992;}
 }
 
 header { background-color: #efefec; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #666; position:relative; height: 44px; @include box-shadow($under_shadow);
-    h1 { @include text-shadow($light_letterpress); position:absolute; top: 6px;  right: 50%; margin: 0; padding: 0; text-transform: uppercase; font-size: 2.2em;
+    h1 { @include text-shadow($light_letterpress); position:absolute; top: 6px;  right: 40.3%; margin: 0; padding: 0; text-transform: uppercase; font-size: 2.2em;
         a { color: #bbb; text-decoration: none; 
             &:hover { color: #ddd; }
             &:visited { color: #bbb; }
@@ -55,6 +55,11 @@ header nav {float: right; margin-right: 5%;
         }
     }
     .hover {display: block !important;}
+}
+
+section#vote { text-align: center; margin-top: 1em; 
+    a { display: block; margin: 0px auto; text-decoration: none; color: white; background-color: #333;  @include border-radius(3px); max-width: 320px; padding: 10px 5px; @include border-box;
+    }
 }
 
 /****** Sign up / Sign in ******/
