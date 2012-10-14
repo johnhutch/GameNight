@@ -32,9 +32,11 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can [:games, :add_game, :remove_game, :autocomplete_game_name], User
+                        can [:games, :autocomplete_game_name], User
+                        can :manage, Game
+                        can [:autocomplete_game_name], Game
                         can :show, [Photo, User]
-                        can :front, Content
+                        can [:front, :dashboard], Content
     
     elsif user.role? :author
                         can :read, :all
@@ -55,9 +57,11 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can [:games, :add_game, :remove_game, :autocomplete_game_name], User
+                        can [:games, :autocomplete_game_name], User
                         can :show, [Post, User]
-                        can :front, Content
+                        can :manage, Game
+                        can [:autocomplete_game_name], Game
+                        can [:front, :dashboard], Content
 
     elsif user.role? :friend
                         can :read, :all
@@ -75,9 +79,11 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can :front, Content
+                        can [:front, :dashboard], Content
                         can :show, Post
-                        can [:show,:games, :add_game, :remove_game, :autocomplete_game_name], User
+                        can :manage, Game
+                        can [:autocomplete_game_name], Game
+                        can [:show, :games], User
     
     elsif user.role? :commenter
                         can :read, :all
@@ -89,16 +95,18 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can [:games, :add_game, :remove_game, :autocomplete_game_name], User
+                        can [:games, :autocomplete_game_name], User
                         can :show, [Post, User]
-                        can :front, Content
+                        can :manage, Game
+                        can [:front, :dashboard], Content
     
     else              # guest
                         cannot :manage, :all
                         can [:show, :index], Post 
                         can [:show, :index], Photo
-                        can [:show, :games, :add_game, :remove_game, :autocomplete_game_name], User
-                        can :front, Content
+                        can [:show, :games, :autocomplete_game_name], User
+                        can :manage, Game
+                        can [:front, :dashboard], Content
     end
   end
 end

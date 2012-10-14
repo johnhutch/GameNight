@@ -13,14 +13,14 @@ Tinder::Application.routes.draw do
 
     resources :comments
     resources :contents
+    resources :games do
+        get :autocomplete_game_name, :on => :collection
+    end
 
     devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
     resources :users do
-        get :autocomplete_game_name, :on => :collection
         member do
             get :games
-            put :add_game
-            post :remove_game
         end
         resources :roles
     end
@@ -31,6 +31,7 @@ Tinder::Application.routes.draw do
     # content routes
     match "/admin" => "contents#admin", :as => :admin
     match "/contact" => "contents#contact", :as => :contact
+    match "/dashboard" => "contents#dashboard", :as => :dashboard
 
     root :to => "contents#front"
 
