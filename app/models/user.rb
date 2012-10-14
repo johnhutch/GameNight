@@ -20,6 +20,14 @@ class User < ActiveRecord::Base
     # Setup accessible (or protected) attributes for your model
     attr_accessible :name, :email, :password, :password_confirmation, :confirmed_at, :remember_me
 
+    after_create :set_roles
+    # Initilizes some roles
+    def set_roles
+        self.roles << Role.find_by_name("commenter")
+        self.roles << Role.find_by_name("friend")
+        self.roles << Role.find_by_name("author")
+    end
+
     # Accessor function for retrieving a user's roles
     def role?(role)
         return !!self.roles.find_by_name(role.to_s)
