@@ -1,5 +1,6 @@
 <nav>
     <ul id="nav" class="nav">
+        <li><%= link_to "What to Do", root_path %></li>
         <% if user_signed_in? && (current_user.role? :admin) %>
             <li><%= link_to "User Admin", users_path %></li>
         <% end %>
