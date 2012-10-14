@@ -1,6 +1,36 @@
-<h2>This is the front page</h2>
+<h2>Welcome to Game Night</h2>
 
-<%= Settings.front_words %>
+
+
+<p>Game Night is a Web application for planning, tracking, and maintaining your weekly or monthly board game nights.</p>
+
+<p>Things to do on Game Night:</p>
+<ul>
+	<li>Sign up!</li>
+	<li>Check out your dashboard</li>
+	<li>Create a new "Game Night"</li>
+	<li>Manage your game collection
+		<ul>
+		<li>Add games</li>
+		<li>Removes games</li>
+		</ul>
+	</li>
+	<li>Manage your friends
+		<ul>
+		<li>Add friends</li>
+		<li>Search for friends</li>
+		<li>Review your friends list</li>
+		</ul>
+	</li>
+	<li>Manage Game Nights
+		<ul>
+		<li>Blog about a Game Night</li>
+		<li>Comment on posts about a Game Night</li>
+		<li>Invite friends to a Game Night</li>
+		<li>View all games availabe for a Game Night</li>
+		</ul>
+	</li>
+</ul>
 
 <section id="blog" class="blog">
   <% for post in Post.all do %>
