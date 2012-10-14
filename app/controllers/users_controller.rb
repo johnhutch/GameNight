@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+  autocomplete :game, :name, :full => true
     
   def index
     @users = User.all
@@ -40,6 +41,15 @@ class UsersController < ApplicationController
 
   def games
     @user = User.find(params[:id])
+  end
+
+  def add_game
+    @user = User.find(params[:id])
+    
+
+    respond_to do |format|
+      format.html { redirect_to(games_user_path, :notice => 'Game added.') }
+    end
   end
   
   # DELETE /videos/1

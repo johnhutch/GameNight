@@ -1,5 +1,4 @@
 Tinder::Application.routes.draw do
-
     match '/auth/:provider/callback' => 'authentications#create'
 
     resources :authentications
@@ -17,11 +16,13 @@ Tinder::Application.routes.draw do
 
     devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
     resources :users do
+        get :autocomplete_game_name, :on => :collection
         member do
             get :games
+            put :add_game
             get :friend_request
         end
-        resources :roles 
+        resources :roles
     end
 
     # content routes
