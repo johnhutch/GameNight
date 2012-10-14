@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  autocomplete :game, :name, :full => true
     
   def index
     @users = User.all
@@ -41,36 +40,6 @@ class UsersController < ApplicationController
 
   def games
     @user = User.find(params[:id])
-  end
-
-  def add_game
-    @user = User.find(params[:id])
-    @game = Game.find_by_name(params[:user][:games][:game_name])
-    notice = "Game added."
-
-    if(@game.nil?)
-      notice = "Game not in database."
-    elsif (@user.games.include?(@game))
-      notice = "This game is already in your collection."
-    else
-      @user.games << @game
-      notice = "Game added."
-    end
-
-    respond_to do |format|
-      format.html { redirect_to(games_user_path, :notice => notice) }
-    end
-  end
-
-  def remove_game
-    @user = User.find(params[:id])
-    @game = Game.find(params[:game])
-
-    @user.games.delete(@game)
-
-    respond_to do |format|
-      format.html { redirect_to(games_user_path, :notice => 'Game removed.') }
-    end
   end
   
   # DELETE /videos/1

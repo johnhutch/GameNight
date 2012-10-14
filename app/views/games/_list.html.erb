@@ -1,0 +1,18 @@
+<h2>Your Games List</h2>
+
+<!-- Check for user's game list. Display if not empty -->
+<% if user.games.empty? %>
+	<p>You have no games added.</p>
+<% else %>
+	<ul class="game_list">
+	<% user.games.each do |g| %>
+		<li><%= g.name %>
+			<%= link_to "Remove game", game_path(g), :method => :delete, :class => "remove_game", :id => "remove_game_" + g.id.to_s %>
+		</li>
+	<% end %>
+	</ul>
+<% end %>
+
+<% if user_signed_in? && (user == current_user) %>
+	<%= render "games/form" %>
+<% end %>
