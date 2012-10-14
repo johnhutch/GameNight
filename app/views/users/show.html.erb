@@ -2,11 +2,10 @@
 <% @page_title = @user.name %>
 
 <% if user_signed_in? %>
-    <% if @user.friends.include?(current_user) %>
+    <% if current_user.confirmed_friends.include?(@user) %>
         <p>You are friends with <%= @user.name %></p>
     <% else %>
-        <% if request_sent(@user) %>
-            <!-- Always returns false for now. Fix/define in user helper -->
+        <% if current_user.unconfirmed_friends.include(@user) %>
             <p>Waiting for <%= @user.name %> to respond to your friend request.</p>
         <% else %>
             <%= link_to "Send friend request", friend_request_user_path(@user) %>

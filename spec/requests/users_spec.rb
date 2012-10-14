@@ -45,7 +45,6 @@ describe "Users" do
     it "shows user name and lists users games" do
       user = FactoryGirl.create(:gamer)
       visit games_user_path(user)
-      save_and_open_page
       page.should have_content(user.name)
       page.should have_content(user.games.first.name)
     end
