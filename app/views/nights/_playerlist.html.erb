@@ -1,0 +1,10 @@
+<% if night.users.count > 1 %>
+        <h3>Your game night with:</h3>
+            <% for user in night.users %>
+                <%= user.name %>,
+            <% end %> 
+<% else %>
+    <p>Add some friends to your game night</p>
+<% end %>
+<%= link_to t('links.remove_night'), night_path(night), :method => :delete %>
+

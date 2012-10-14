@@ -1,6 +1,8 @@
 <% @page_title = @night.name %>
 <h2><%= @night.name %></h2>
 
+<%= render :partial => 'nights/playerlist', :locals => {:night => @night} %>
+
 <section id="blog" class="blog">
     <h3>News and updates for <%= @night.name%></h3>
 </section>
