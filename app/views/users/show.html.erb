@@ -9,7 +9,7 @@
             <!-- Always returns false for now. Fix/define in user helper -->
             <p>Waiting for <%= @user.name %> to respond to your friend request.</p>
         <% else %>
-            <%= link_to "Send friend request", friend_request_user_path(@user) %>
+            <%= link_to t('links.request_friend'), friendships_path(:friend_id => @user), :method => :post %>
         <% end %>
     <% end %>
 <% end %>

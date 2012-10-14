@@ -5,10 +5,12 @@ class User < ActiveRecord::Base
     has_many :posts
     has_many :photos
     has_and_belongs_to_many :games
-    has_and_belongs_to_many :friends,
-        :class_name => "User",
-        :association_foreign_key => "friend_id",
-        :join_table => "friends"
+
+    has_many :friendships
+    has_many :friends, :through => :friendships
+
+    has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+    has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
     # Include default devise modules. Others available are:
     # :token_authenticatable, :lockable, :timeoutable and :activatable
