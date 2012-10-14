@@ -1,3 +1,18 @@
+<section id="games" class="games">
+    <%= link_to t('links.create_night'), add_new_nights_path, :class => "button add_new_night", :id => "add_new_night" %>
+
+    <% for night in current_user.nights do %>
+        <% if night.users.count > 1 %>
+            <h3>Your game night with:</h3>
+                <% for user in night.users %>
+                    <%= user.name %>, 
+                <% end %> 
+        <% else %>
+            <p>Add some friends to your game night</p>
+        <% end %>
+    <% end %>
+</section>
+
 <h2>Your Friends</h2>
 <ul>
     <% for friendship in current_user.friendships %>

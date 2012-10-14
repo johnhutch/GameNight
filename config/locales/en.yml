@@ -29,6 +29,8 @@ en:
     comment_problem:        "There was a problem saving your comment."
     friendship_added:       "Friend added."
     removed_friendship:     "Removed friend."
+    night_created:          "Your new night was successfully created."
+    night_creation_problem: "There was a system error creationg your new game night. Please try again laster."
   links:
     add_a_photo:            "Add a photo"
     forgot_password:        "Forgot my password"
@@ -36,3 +38,4 @@ en:
     request_friend:         "Add Friend"
     add_friend:             "Add Friend"
     remove_friend:          "Remove Friend"
+    create_night:           "Create a New Night"

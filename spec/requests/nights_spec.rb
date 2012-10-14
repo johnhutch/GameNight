@@ -1,11 +1,16 @@
 require 'spec_helper'
 
 describe "Nights" do
-  describe "GET /nights" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get nights_path
-      response.status.should be(200)
+    let(:user) {FactoryGirl.create(:user)}
+
+    describe "POST /nights" do
+        it "gamer user can create a game night" do
+            login(user)
+
+            visit dashboard_path
+            click_link I18n.t('links.create_night')
+            page.should have_content(I18n.t('flash.night_created'))
+            page.should have_content("Add some friends to your game night")
+        end
     end
-  end
 end

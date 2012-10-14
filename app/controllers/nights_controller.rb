@@ -39,15 +39,15 @@ class NightsController < ApplicationController
 
   # POST /nights
   # POST /nights.json
-  def create
-    @night = Night.new(params[:night])
+  def add_new
+    @night = current_user.nights.create
 
     respond_to do |format|
       if @night.save
-        format.html { redirect_to @night, notice: 'Night was successfully created.' }
-        format.json { render json: @night, status: :created, location: @night }
+        format.html { redirect_to dashboard_path, notice: t('flash.night_created') }
+        format.json { render json: @night, status: :created }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to dashboard_path, notice: t('flash.night_creation_problem') }
         format.json { render json: @night.errors, status: :unprocessable_entity }
       end
     end
