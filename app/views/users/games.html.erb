@@ -6,7 +6,9 @@
 <% else %>
 	<ul class="game_list">
 	<% @user.games.each do |g| %>
-		<li><%= g.name %></li>
+		<li><%= g.name %>
+			<%= link_to "Remove game", remove_game_user_path(:game => g), :method => "remove_game", :class => "remove_game", :id => "remove_game_" + g.id.to_s %>
+		</li>
 	<% end %>
 	</ul>
 <% end %>

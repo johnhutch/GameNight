@@ -65,11 +65,20 @@ describe "Users" do
 
     it "shows new list of games with newly added game", :js => true do
       catan = FactoryGirl.create(:game, name: "The Settlers of Catan")
+      gamer
       login(gamer)
       visit games_user_path(gamer)
-      fill_in "user_games_game_name", :with => "The Settlers of Catan"
+      fill_in "user_games_game_name", :with => catan.name
       click_button "Add game"
-      page.should have_content("The Settlers of Catan")
+      page.should have_content(catan.name)
+    end
+
+    it "deletes a game from a collection after clicking the remove link", :js => true do
+      gamer
+      login(gamer)
+      visit games_user_path(gamer)
+      click_link "remove_game_2"
+      page.should_not have_content("Board Game 8")
     end
   end
 end

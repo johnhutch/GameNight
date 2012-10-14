@@ -17,7 +17,7 @@ class Ability
                         can :destroy, Photo do |p|
                           p.try(:user) == user
                         end
-                        can [:games, :add_game], User
+                        can [:games, :add_game, :remove_game, :autocomplete_game_name], User
                         can :show, [Photo]
                         can :front, Content
     
@@ -37,7 +37,7 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can [:games, :add_game], User
+                        can [:games, :add_game, :remove_game, :autocomplete_game_name], User
                         can :show, [Post]
                         can :front, Content
     
@@ -51,7 +51,7 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can [:games, :add_game], User
+                        can [:games, :add_game, :remove_game, :autocomplete_game_name], User
                         can :show, [Post]
                         can :front, Content
 
@@ -60,14 +60,13 @@ class Ability
                         cannot :manage, :all
                         can :show, Post
                         can :front, Content
-                        can [:show, :friend_request, :games], User
+                        can [:show, :friend_request, :games, :add_game, :remove_game, :autocomplete_game_name], User
     
     else              # guest
                         cannot :manage, :all
                         can [:show, :index], Post 
                         can [:show, :index], Photo
-                        can [:show], User
-                        can [:games, :add_game], User
+                        can [:show, :games, :add_game, :remove_game, :autocomplete_game_name], User
                         can :front, Content
     end
   end

@@ -52,6 +52,17 @@ class UsersController < ApplicationController
       format.html { redirect_to(games_user_path, :notice => 'Game added.') }
     end
   end
+
+  def remove_game
+    @user = User.find(params[:id])
+    @game = Game.find(params[:game])
+
+    @user.games.delete(@game)
+
+    respond_to do |format|
+      format.html { redirect_to(games_user_path, :notice => 'Game removed.') }
+    end
+  end
   
   # DELETE /videos/1
   # DELETE /videos/1.xml

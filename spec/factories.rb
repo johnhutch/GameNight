@@ -77,7 +77,8 @@ FactoryGirl.define do
     factory :gamer, :class => User do
       name { generate(:name) }
       email
-      after(:create) {|user|
+      after(:create) { |user|
+        user.roles << FactoryGirl.create(:friend_role)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)
