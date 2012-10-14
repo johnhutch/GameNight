@@ -42,10 +42,20 @@ describe "Users" do
   end
 
   describe "GET /users/:id/games" do
-    it "list users games" do
-      user = FactoryGirl.create(:gamer)
-      visit games_user_path(user)
-      page.should have_content(user.game.first.name)
+    let(:gamer) {FactoryGirl.create(:gamer)}
+    it "shows user name and lists users games" do
+      gamer
+      visit games_user_path(gamer)
+      page.should have_content(gamer.name)
+      page.should have_content(gamer.games.first.name)
+    end
+
+    it "shows possible games to add as letters are typed" do
+      login(gamer)
+      visit games_user_path(gamer)
+      page.should have_content("Add a game to your collection")
+      fill_in "user_games_game_name", :with => "ar"
+      page.should have_content("Board Game 6")
     end
   end
 end

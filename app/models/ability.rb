@@ -94,6 +94,7 @@ class Ability
                         can [:show, :index], Post 
                         can [:show, :index], Photo
                         can [:show], User
+                        can :games, User
                         can :front, Content
     end
   end

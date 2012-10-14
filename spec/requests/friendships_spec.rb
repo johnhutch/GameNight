@@ -12,6 +12,7 @@ describe "Friends" do
             visit user_path(friend2)
             click_link I18n.t('links.request_friend')
             page.should have_content(I18n.t('flash.friend_request_sent'))
+            page.should have_content("Waiting for" + friend.name + "to respond to your friend request")
         end
     end
 

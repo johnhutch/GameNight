@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+  autocomplete :game, :name, :full => true
     
   def index
     @users = User.all
@@ -35,6 +36,19 @@ class UsersController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+  def games
+    @user = User.find(params[:id])
+  end
+
+  def add_game
+    @user = User.find(params[:id])
+    
+
+    respond_to do |format|
+      format.html { redirect_to(games_user_path, :notice => 'Game added.') }
     end
   end
   

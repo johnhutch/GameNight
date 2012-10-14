@@ -25,6 +25,23 @@ class User < ActiveRecord::Base
         return !!self.roles.find_by_name(role.to_s)
     end
 
+    def confirmed_friends
+        self.friends.where(:verified => true)
+    end
+
+    def unconfirmed_friends
+        self.friends.where(:verified => false, :ignored => false, :blocked => false)
+    end
+
+    def ignored_friends
+        self.friends.where(:ignored => false, :blocked => false)
+    end
+
+    def unignored_friends
+        self.friends.where(:blocked => true)
+    end
+
+
     def self.from_omniauth(omniauth)
         user = User.new
         user.name ||= omniauth['info']['nickname']
