@@ -76,7 +76,8 @@ class Ability
                           c.try(:user) == user
                         end
                         can :front, Content
-                        can :show, [Post, User]
+                        can :show, Post
+                        can [:show,:games, :add_game, :remove_game, :autocomplete_game_name], User
     
     elsif user.role? :commenter
                         can :read, :all
