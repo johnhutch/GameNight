@@ -22,6 +22,11 @@ FactoryGirl.define do
   end
 
   sequence(:gamename) { |n| "Board Game #{n}"}
+  sequence(:nightname) { |n| "Game Night #{n}"}
+
+  factory :night do
+    name { generate(:nightname) }
+  end
 
   factory :game do
     name { generate(:gamename) }

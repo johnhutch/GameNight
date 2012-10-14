@@ -43,7 +43,7 @@ class NightsController < ApplicationController
     @night = current_user.nights.build(params[:night])
 
     respond_to do |format|
-      if @night.save
+      if current_user.save
         format.html { redirect_to @night, notice: t('flash.night_created') }
         format.json { render json: @night, status: :created }
       else

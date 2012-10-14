@@ -37,7 +37,7 @@
 
 <body id="<%= action_name %>" class="<%= controller_name %>">
 <header class="clearfix">
-    <h1><a href="/"><%=t :site_name %></a></h1>
+    <h1><a href="<%= user_signed_in? ? dashboard_path : root_path %>"><%=t :site_name %></a></h1>
     <%= render "layouts/nav" %>
 </header>
 

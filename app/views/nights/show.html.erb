@@ -3,6 +3,15 @@
 
 <%= render :partial => 'nights/playerlist', :locals => {:night => @night} %>
 
-<section id="blog" class="blog">
+<section id="blog" class="blog column">
     <h3>News and updates for <%= @night.name%></h3>
+</section>
+
+<section id="games" class="games column">
+    <h3>Your game collection</h3>
+    <ul>
+        <% for game in night_game_union(@night) do %>
+            <li><%= game.name %></li>
+        <% end %>
+    </ul>
 </section>
