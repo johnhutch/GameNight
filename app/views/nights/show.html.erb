@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% @page_title = @night.name %>
+<h2><%= @night.name %></h2>
 
-
-<%= link_to 'Edit', edit_night_path(@night) %> |
-<%= link_to 'Back', nights_path %>
+<section id="blog" class="blog">
+    <h3>News and updates for <%= @night.name%></h3>
+</section>

@@ -8,9 +8,10 @@ describe "Nights" do
             login(user)
 
             visit dashboard_path
-            click_link I18n.t('links.create_night')
+            fill_in "night_name", :with => "Sample Night"
+            click_button I18n.t('buttons.create_night')
             page.should have_content(I18n.t('flash.night_created'))
-            page.should have_content("Add some friends to your game night")
+            page.should have_content("Sample Night")
         end
 
         it "gamer can delete a game night" do

@@ -4,7 +4,11 @@
         <h3>You have no game nights set up.</h3>
     <% end %>
 
-    <%= link_to t('links.create_night'), add_new_nights_path, :class => "add_new_night dark_button", :id => "add_new_night" %>
+    <%= form_for Night.new do |f| %>
+        <%= f.label :name, "Create a new game night" %>
+        <%= f.text_field :name, :placeholder => "Name your new game night" %>
+        <%= f.submit t('buttons.create_night'), 'data-disable-with' => "Saving..." %>
+    <% end %>
 
     <% for night in current_user.nights do %>
         <div class="game column">

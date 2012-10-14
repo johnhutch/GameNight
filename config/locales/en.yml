@@ -18,6 +18,7 @@ en:
     create_comment:         "Post my comment"
     edit_comment:           "Update my comment"
     add_game:               "Add game"
+    create_night:           "Create Game Night"
   flash:
     signed_in:              "Signed in successfully"
     post_created:           "Post was successfully created."
@@ -30,7 +31,8 @@ en:
     friendship_added:       "Friend added."
     removed_friendship:     "Removed friend."
     night_created:          "Your new night was successfully created."
-    night_removed:          "You have been removed from the game night."
+    night_removed:          "You have been removed yourself from the game night"
+    night_deleted:          "The game night has been deleted."
     night_creation_problem: "There was a system error creationg your new game night. Please try again laster."
   links:
     add_a_photo:            "Add a photo"
@@ -39,5 +41,4 @@ en:
     request_friend:         "Add Friend"
     add_friend:             "Add Friend"
     remove_friend:          "Remove Friend"
-    create_night:           "Create a New Night"
     remove_night:           "Leave this Game Night"

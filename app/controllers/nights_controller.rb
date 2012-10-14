@@ -39,12 +39,12 @@ class NightsController < ApplicationController
 
   # POST /nights
   # POST /nights.json
-  def add_new
-    @night = current_user.nights.create
+  def create
+    @night = current_user.nights.build(params[:night])
 
     respond_to do |format|
       if @night.save
-        format.html { redirect_to dashboard_path, notice: t('flash.night_created') }
+        format.html { redirect_to @night, notice: t('flash.night_created') }
         format.json { render json: @night, status: :created }
       else
         format.html { redirect_to dashboard_path, notice: t('flash.night_creation_problem') }
@@ -73,10 +73,16 @@ class NightsController < ApplicationController
   # DELETE /nights/1.json
   def destroy
     @night = Night.find(params[:id])
-    @night.destroy
+    if @night.users.empty?
+        @night.destroy
+        msg = t('flash.night_deleted')
+    else
+        current_user.nights.delete(@night)
+        msg = t('flash.night_removed')
+    end
 
     respond_to do |format|
-      format.html { redirect_to dashboard_path, notice: t('flash.night_removed') }
+      format.html { redirect_to dashboard_path, notice: msg }
       format.json { head :no_content }
     end
   end
