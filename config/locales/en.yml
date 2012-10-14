@@ -5,8 +5,9 @@ en:
   site_name: "Game Night"
   
   labels:
-    update_comment:          "Update your comment"
-    post_a_comment:          "Post a comment"
+    update_comment:         "Update your comment"
+    post_a_comment:         "Post a comment"
+    add_a_game:             "Add a game to your collection"
   buttons:
     reset_password:         "Send me reset password instructions"
     change_password:        "Change my password"
@@ -16,6 +17,7 @@ en:
     edit_photo:             "Update Photo"
     create_comment:         "Post my comment"
     edit_comment:           "Update my comment"
+    add_game:               "Add game"
   flash:
     signed_in:              "Signed in successfully"
     post_created:           "Post was successfully created."
@@ -25,7 +27,12 @@ en:
     comment_created:        "Comment was successfully created."
     comment_updated:        "Comment was successfully updated."
     comment_problem:        "There was a problem saving your comment."
+    friendship_added:       "Friend added."
+    removed_friendship:     "Removed friend."
   links:
     add_a_photo:            "Add a photo"
     forgot_password:        "Forgot my password"
     signup_signin:          "Sign up / Sign in"
+    request_friend:         "Add Friend"
+    add_friend:             "Add Friend"
+    remove_friend:          "Remove Friend"

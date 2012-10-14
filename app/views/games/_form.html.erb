@@ -1,0 +1,11 @@
+<%= nested_form_for @user, :url=> {:action => 'add_game'} do |f| %>
+
+	<%= f.fields_for :games do |builder| %>
+  		<%= builder.label t('labels.add_a_game') %>
+  		<%= builder.autocomplete_field :game_name, autocomplete_game_name_users_path %>
+	<% end %>
+
+	<div class="actions">
+		<%= f.submit t('buttons.add_game'), 'data-disable-with'=> "Adding..." %>
+	</div>
+<% end %>

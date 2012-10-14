@@ -15,48 +15,58 @@ FactoryGirl.define do
     factory :uploader_role do
       name 'uploader'
     end
+
+    factory :friend_role do
+      name 'friend'
+    end
   end
 
   sequence(:gamename) { |n| "Board Game #{n}"}
 
   factory :game do
-    name = gamename
+    name { generate(:gamename) }
   end
 
   sequence(:name) { |n| "Joe User #{n}"}
   sequence(:email) { |n| "johnhutch+user#{n}@gmail.com"}
 
   factory :user do
-    name
+    name { generate(:name) }
     email
     password 'secret'
     
     factory :admin, :class => User do
-      name
+      name { generate(:name) }
       email
       after(:create) { |user| user.roles << FactoryGirl.create(:admin_role) }
     end
     
     factory :author , :class => User do
-      name
+      name { generate(:name) }
       email
       after(:create) { |user| user.roles << FactoryGirl.create(:author_role) }
     end
 
     factory :uploader, :class => User do
-      name
+      name { generate(:name) }
       email
       after(:create) { |user| user.roles << FactoryGirl.create(:uploader_role) }
     end
 
     factory :commenter, :class => User do
-      name
+      name { generate(:name) }
       email
       after(:create) { |user| user.roles << FactoryGirl.create(:commenter_role) }
     end
 
-    factory :author_commenter, :class => User do
+    factory :friend, :class => User do
       name
+      email
+      after(:create) { |user| user.roles << FactoryGirl.create(:friend_role) }
+    end
+
+    factory :author_commenter, :class => User do
+      name { generate(:name) }
       email
       after(:create) { |user| 
         user.roles << FactoryGirl.create(:author_role)
@@ -65,9 +75,11 @@ FactoryGirl.define do
     end
 
     factory :gamer, :class => User do
-      name
+      name { generate(:name) }
       email
-      after(:create) {|user|
+      after(:create) { |user|
+        user.roles << FactoryGirl.create(:friend_role)
+        user.roles << FactoryGirl.create(:author_role)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)

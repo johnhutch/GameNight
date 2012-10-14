@@ -1,4 +1,8 @@
 module ApplicationHelper
+
+  def associated_friendship(user)
+    friendship = current_user.friendships.find_by_friend_id(user.id) 
+  end
  
   def markdown(text)
       rc = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true, :filter_html => true, :hard_wrap => true)
