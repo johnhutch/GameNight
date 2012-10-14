@@ -10,6 +10,7 @@ describe "Users" do
     let(:gamer) {FactoryGirl.create(:gamer)}
     it "shows user name and lists users games" do
       gamer
+      login(gamer)
       visit dashboard_path(gamer)
       page.should have_content(gamer.name)
       page.should have_content(gamer.games.first.name)
@@ -30,7 +31,7 @@ describe "Users" do
       gamer
       login(gamer)
       visit dashboard_path(gamer)
-      fill_in "user_games_game_name", :with => catan.name
+      fill_in "game_name", :with => catan.name
       click_button "Add game"
       page.should have_content(catan.name)
     end
