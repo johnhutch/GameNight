@@ -95,3 +95,18 @@ form .field label {display: block;
 
 
 /****** DASHBAORD *******/
+form#new_night {margin-top: 1.4em;}
+
+ul#games {margin: 0; padding: 0; list-style-type: none;
+    li { margin: 10px; padding: 10px; @include border-radius(4px); background-color: #eee8e3; border: 1px solid #ccc5c1;  float: left;
+        h4 {margin-top: 0;
+            a { color: #222; text-decoration: none;
+                &:hover {color: #222;}
+                &:visited {color: #222;}
+            }
+        }
+        h5 {margin: 0;}
+        ul {list-style-type: none; margin: 0 0 1em 0; padding: 0;}
+        li { margin: 0; padding: 0; background-color: transparent; border-width: 0px; float: none;}
+    }
+}

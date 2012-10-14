@@ -4,17 +4,21 @@
         <h3>You have no game nights set up.</h3>
     <% end %>
 
+    <ul id="games" class="games clearfix">
+        <% for night in current_user.nights do %>
+            <li class="game">
+                <h4><%= link_to night.name, night %></h4>
+                <%= render :partial => 'nights/playerlist', :locals => {:night => night} %>
+            </li>
+        <% end %>
+    </ul>
+
     <%= form_for Night.new do |f| %>
         <%= f.label :name, "Create a new game night" %>
         <%= f.text_field :name, :placeholder => "Name your new game night" %>
         <%= f.submit t('buttons.create_night'), 'data-disable-with' => "Saving..." %>
     <% end %>
 
-    <% for night in current_user.nights do %>
-        <div class="game column">
-            <%= render :partial => 'nights/playerlist', :locals => {:night => night} %>
-        </div>
-    <% end %>
 </section>
 
 <section id="games_list" class="games_list clear clearfix">
