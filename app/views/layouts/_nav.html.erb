@@ -1,5 +1,7 @@
 <nav>
     <ul id="nav" class="nav">
+        <li><b><a href="http://railsrumble.com/entries/105-game-night" target="_blank">Vote for Us in the Rails Rumble 2012</a></b>
+        </li>
         <% if user_signed_in? && (current_user.role? :admin) %>
             <li><%= link_to "User Admin", users_path %></li>
         <% end %>
