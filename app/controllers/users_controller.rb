@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       if @users.empty?
         format.html { redirect_to(dashboard_path, :notice => "No users found.") }
       else
-        format.html { redirect_to dashboard_path }
+        format.html { render :action => "search" }
       end
     end
   end

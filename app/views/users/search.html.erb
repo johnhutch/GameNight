@@ -1,0 +1,12 @@
+<div class="friend_search clearfix">
+    <h3>Search for new friends by e-mail</h3>
+    <%= render :partial => '/users/search_form' %>
+</div>
+
+<% if @users %>
+    <div class="friend_results clearfix">
+        <h3>Friend search results</h3>
+        <%= render :partial => '/users/search_results', :locals => {:users => @users}  %>
+    </div>
+<% end %>
+
