@@ -32,7 +32,7 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can [:games, :autocomplete_game_name], User
+                        can [:games, :autocomplete_game_name, :search], User
                         can :manage, Game
                         can [:autocomplete_game_name], Game
                         can :show, [Photo, User]
@@ -57,7 +57,7 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can [:games, :autocomplete_game_name], User
+                        can [:games, :autocomplete_game_name, :search], User
                         can :show, [Post, User]
                         can :manage, Game
                         can [:autocomplete_game_name], Game
@@ -83,7 +83,7 @@ class Ability
                         can :show, Post
                         can :manage, Game
                         can [:autocomplete_game_name], Game
-                        can [:show, :games], User
+                        can [:show, :games, :search], User
     
     elsif user.role? :commenter
                         can :read, :all
@@ -95,7 +95,7 @@ class Ability
                         can :destroy, Comment do |c|
                           c.try(:user) == user
                         end
-                        can [:games, :autocomplete_game_name], User
+                        can [:games, :autocomplete_game_name, :search], User
                         can :show, [Post, User]
                         can :manage, Game
                         can [:front, :dashboard], Content
@@ -104,7 +104,7 @@ class Ability
                         cannot :manage, :all
                         can [:show, :index], Post 
                         can [:show, :index], Photo
-                        can [:show, :games, :autocomplete_game_name], User
+                        can [:show, :games, :autocomplete_game_name, :search], User
                         can :manage, Game
                         can [:front, :dashboard], Content
     end

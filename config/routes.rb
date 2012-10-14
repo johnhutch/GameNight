@@ -22,6 +22,9 @@ Tinder::Application.routes.draw do
         member do
             get :games
         end
+        collection do
+            post :search
+        end
         resources :roles
     end
     resources :friendships
