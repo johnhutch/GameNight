@@ -45,7 +45,8 @@ class UsersController < ApplicationController
 
   def add_game
     @user = User.find(params[:id])
-    
+    @game = Game.find_by_name(params[:user][:games][:game_name])
+    @user.games << @game
 
     respond_to do |format|
       format.html { redirect_to(games_user_path, :notice => 'Game added.') }
