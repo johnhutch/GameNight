@@ -6,19 +6,20 @@ class FriendshipsController < ApplicationController
         @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
         respond_to do |format|
             if @friendship.save
-                format.html { redirect_to(@user, :notice => 'Friendship added.') }
+                format.html { redirect_to(@user, :notice => t('flash.friendship_added')) }
                 format.xml  { head :ok }
             else
                 format.html { redirect_to(@user, :notice => 'Unable to add friendship.') }
                 format.xml  { render :xml => @Friendship.errors, :status => :unprocessable_entity }
             end
         end
+    end
 
-        def destroy
-            @friendship = current_user.friendships.find(params[:id])
-            @friendship.destroy
-            flash[:notice] = "Removed friendship."
-            redirect_to current_user
-        end
+    def destroy
+        @friendship = current_user.friendships.find(params[:id])
+        @friendship.destroy
+        flash[:notice] = t('flash.removed_friendship')
+        redirect_to current_user
+    end
 
     end
