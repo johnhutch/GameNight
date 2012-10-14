@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  belongs_to :night
   has_many :comments, :as => :parent
   has_many :photos, :as => :owner
   

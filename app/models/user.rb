@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     has_many :posts
     has_many :photos
     has_and_belongs_to_many :games
+    has_and_belongs_to_many :nights
 
     has_many :friendships
     has_many :friends, :through => :friendships
