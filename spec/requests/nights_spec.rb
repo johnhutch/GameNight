@@ -12,5 +12,15 @@ describe "Nights" do
             page.should have_content(I18n.t('flash.night_created'))
             page.should have_content("Add some friends to your game night")
         end
+
+        it "gamer can delete a game night" do
+            login(user)
+            user.nights.create!
+
+            visit dashboard_path
+            click_link I18n.t('links.remove_night')
+            page.should have_content(I18n.t('flash.night_removed'))
+            page.should have_content("You have no game nights set up.")
+        end
     end
 end

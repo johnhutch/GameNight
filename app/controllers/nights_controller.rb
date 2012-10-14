@@ -76,7 +76,7 @@ class NightsController < ApplicationController
     @night.destroy
 
     respond_to do |format|
-      format.html { redirect_to nights_url }
+      format.html { redirect_to dashboard_path, notice: t('flash.night_removed') }
       format.json { head :no_content }
     end
   end

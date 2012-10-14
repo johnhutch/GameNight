@@ -30,6 +30,7 @@ en:
     friendship_added:       "Friend added."
     removed_friendship:     "Removed friend."
     night_created:          "Your new night was successfully created."
+    night_removed:          "You have been removed from the game night."
     night_creation_problem: "There was a system error creationg your new game night. Please try again laster."
   links:
     add_a_photo:            "Add a photo"
@@ -39,3 +40,4 @@ en:
     add_friend:             "Add Friend"
     remove_friend:          "Remove Friend"
     create_night:           "Create a New Night"
+    remove_night:           "Leave this Game Night"

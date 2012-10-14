@@ -1,39 +1,65 @@
-<section id="games" class="games">
-    <% if current_user.nights.nil? %>
+<section id="games" class="games clear clearfix">
+    <h2>Your Game Nights</h2>
+    <% if current_user.nights.empty? %>
         <h3>You have no game nights set up.</h3>
     <% end %>
 
-    <%= link_to t('links.create_night'), add_new_nights_path, :class => "button add_new_night", :id => "add_new_night" %>
+    <%= link_to t('links.create_night'), add_new_nights_path, :class => "button add_new_night clear", :id => "add_new_night" %>
 
     <% for night in current_user.nights do %>
-        <% if night.users.count > 1 %>
-            <h3>Your game night with:</h3>
-                <% for user in night.users %>
-                    <%= user.name %>, 
-                <% end %> 
-        <% else %>
-            <p>Add some friends to your game night</p>
-        <% end %>
+        <div class="game column">
+            <% if night.users.count > 1 %>
+                    <h3>Your game night with:</h3>
+                        <% for user in night.users %>
+                            <%= user.name %>,
+                        <% end %> 
+            <% else %>
+                <p>Add some friends to your game night</p>
+            <% end %>
+            <%= link_to t('links.remove_night'), night_path(night), :method => :delete %>
+        </div>
     <% end %>
 </section>
 
-<h2>Your Friends</h2>
-<ul>
-    <% for friendship in current_user.friendships %>
-        <li class="<%= friendship_classname(friendship) %>">
-            <%= friendship.friend.name %>
-            (<%= link_to "remove", friendship, :method => :delete %>)
-        </li>
-    <% end %>  
-</ul>
+<section id="games_list" class="games_list clear clearfix">
+    <%= render :partial => 'games/list', :locals => {:user => current_user} %> 
+</section>
 
-<h2>People Who Have Befriended You</h2>
-<ul>
-    <% for user in current_user.inverse_friends %>
-        <li><%= user.name %>
-            <%= link_to t('links.add_friend'), friendships_path(:friend_id => user), :method => :post %>
-    </li>
-    <% end %>
-</ul>
+<section id="friends" class="friends clearfix">
+    <h2>Your Friends</h2>
+    <div class="column youfriended">
+        <h3>People you have friended:</h3>
+        <ul>
+            <% for friendship in current_user.friendships %>
+                <li class="<%= friendship_classname(friendship) %>">
+                    <%= friendship.friend.name %>
+                    (<%= link_to "remove", friendship, :method => :delete %>)
+                </li>
+            <% end %>
 
-<%= render :partial => 'games/list', :locals => {:user => current_user} %> 
+            <% if current_user.friendships.empty? %>
+                <h4>You have no friends. ☹</h4> 
+            <% end %>
+        </ul>
+    </div>
+
+    <div class="column theyfriended">
+        <h3>People Who Have Befriended You</h3>
+        <ul>
+            <% for user in current_user.inverse_friends %>
+                <li><%= user.name %>
+                    <%= link_to t('links.add_friend'), friendships_path(:friend_id => user), :method => :post %>
+            </li>
+            <% end %>
+
+            <% if current_user.inverse_friends.empty? %>
+                <h4>No one has befriended you. ☹</h4> 
+            <% end %>
+        </ul>
+    </div>
+
+    <div class="friend_search clearfix">
+        <h3>Search for new friends</h3>
+        <p>Search box goes here</p>
+    </div>
+</section>
