@@ -107,6 +107,37 @@ class Ability
                         can [:show, :games, :autocomplete_game_name, :search], User
                         can :manage, Game
                         can [:front, :dashboard], Content
+
+                    # open permissions cause we still need to set up default roles. delete this later.
+                        can :read, :all
+                        cannot :manage, :all
+                        can :create, [Photo, Comment, Friendship]
+                        can :update, Post do |p|
+                          p.try(:user) == user
+                        end
+                        can :destroy, Post do |p|
+                          p.try(:user) == user
+                        end
+                        can :destroy, Friendship do |f|
+                          f.try(:user) == user
+                        end
+                        can :update, Photo do |p|
+                          p.try(:user) == user
+                        end
+                        can :destroy, Photo do |p|
+                          p.try(:user) == user
+                        end
+                        can :update, Comment do |c|
+                          c.try(:user) == user
+                        end
+                        can :destroy, Comment do |c|
+                          c.try(:user) == user
+                        end
+                        can [:games, :autocomplete_game_name, :search], User
+                        can :manage, Game
+                        can [:autocomplete_game_name], Game
+                        can :show, [Photo, User]
+                        can [:front, :dashboard], Content
     end
   end
 end
