@@ -1,3 +1,4 @@
+
 @mixin border-box {
     -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -box-sizing: border-box;
 }
@@ -18,6 +19,7 @@ $dark_boxshadow: 0px 2px 4px #333;
 $light_boxshadow: 0px 2px 4px #ccc;
 $under_shadow: 0px 8px 6px -6px #999;
 
+
 body { background: #f6f1ea;  color: #444440; }
 #container { position: relative; background-color: #fdfdfc; padding: 20px; @include border-box; border: 1px solid #aaa; }
 h1, h2, h3, h4, h5, h6 {color: #999992;}
@@ -27,6 +29,12 @@ h1, h2, h3, h4, h5, h6 {color: #999992;}
 #error_explanation { border: 2px solid red; padding: 7px; padding-bottom: 0; margin-bottom: 20px; background-color: #f0f0f0;
     h2 { text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; font-size: 12px; margin: -7px; margin-bottom: 0px; background-color: #c00; color: #fff; }
     ul li { font-size: 12px; list-style: square; } 
+}
+
+.dark_button { font-weight: bold; display: block; padding: 8px 16px; color: #ddd; text-decoration: none; background-color: #444; @include border-radius(4px); border: 1px solid #222; width: auto; cursor: pointer; text-align: center;
+    &:hover {background: #666; color: #ddd}
+    &:active {background: #666; color: #ddd}
+    &:visited {color: #ddd}
 }
 
 header { background-color: #efefec; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #666; position:relative; height: 44px; @include box-shadow($under_shadow);
@@ -84,3 +92,6 @@ form .field label {display: block;
     .field em {display: block; font-size:.9em; color: #666}
     .checkbox label, form .radio label {display: inline;}
 }
+
+
+/****** DASHBAORD *******/
