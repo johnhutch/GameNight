@@ -1,0 +1,16 @@
+<h2>Your Friends</h2>
+<ul>
+    <% for friendship in current_user.friendships %>
+        <li class="<%= friendship_classname(friendship) %>">
+            <%= friendship.friend.name %>
+            (<%= link_to "remove", friendship, :method => :delete %>)
+        </li>
+    <% end %>  
+</ul>
+
+<h2>People Who Have Befriended You</h2>
+<ul>
+    <% for user in current_user.inverse_friends %>
+        <li><%= user.name %></li>
+    <% end %>
+</ul>

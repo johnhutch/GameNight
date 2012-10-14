@@ -5,10 +5,12 @@ class User < ActiveRecord::Base
     has_many :posts
     has_many :photos
     has_and_belongs_to_many :games
-    has_and_belongs_to_many :friends,
-        :class_name => "User",
-        :association_foreign_key => "friend_id",
-        :join_table => "friends"
+
+    has_many :friendships
+    has_many :friends, :through => :friendships
+
+    has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+    has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
     # Include default devise modules. Others available are:
     # :token_authenticatable, :lockable, :timeoutable and :activatable
@@ -22,23 +24,6 @@ class User < ActiveRecord::Base
     def role?(role)
         return !!self.roles.find_by_name(role.to_s)
     end
-
-    def confirmed_friends
-        self.friends.where(:verified => true)
-    end
-
-    def unconfirmed_friends
-        self.friends.where(:verified => false, :ignored => false, :blocked => false)
-    end
-
-    def ignored_friends
-        self.friends.where(:ignored => false, :blocked => false)
-    end
-
-    def unignored_friends
-        self.friends.where(:blocked => true)
-    end
-
 
     def self.from_omniauth(omniauth)
         user = User.new

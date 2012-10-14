@@ -10,25 +10,20 @@ class Ability
     elsif user.role? :uploader
                         can :read, :all
                         cannot :manage, :all
-                        can :create, [Photo]
-                        can :update, Photo do |p|
-                          p.try(:user) == user
-                        end
-                        can :destroy, Photo do |p|
-                          p.try(:user) == user
-                        end
-                        can [:games, :add_game, :remove_game, :autocomplete_game_name], User
-                        can :show, [Photo]
-                        can :front, Content
-    
-    elsif user.role? :author
-                        can :read, :all
-                        cannot :manage, :all
-                        can :create, [Post, Comment]
+                        can :create, [Photo, Comment, Friendship]
                         can :update, Post do |p|
                           p.try(:user) == user
                         end
                         can :destroy, Post do |p|
+                          p.try(:user) == user
+                        end
+                        can :destroy, Friendship do |f|
+                          f.try(:user) == user
+                        end
+                        can :update, Photo do |p|
+                          p.try(:user) == user
+                        end
+                        can :destroy, Photo do |p|
                           p.try(:user) == user
                         end
                         can :update, Comment do |c|
@@ -38,8 +33,50 @@ class Ability
                           c.try(:user) == user
                         end
                         can [:games, :add_game, :remove_game, :autocomplete_game_name], User
-                        can :show, [Post]
+                        can :show, [Photo, User]
                         can :front, Content
+    
+    elsif user.role? :author
+                        can :read, :all
+                        cannot :manage, :all
+                        can :create, [Post, Comment, Friendship]
+                        can :update, Post do |p|
+                          p.try(:user) == user
+                        end
+                        can :destroy, Post do |p|
+                          p.try(:user) == user
+                        end
+                        can :destroy, Friendship do |f|
+                          f.try(:user) == user
+                        end
+                        can :update, Comment do |c|
+                          c.try(:user) == user
+                        end
+                        can :destroy, Comment do |c|
+                          c.try(:user) == user
+                        end
+                        can [:games, :add_game, :remove_game, :autocomplete_game_name], User
+                        can :show, [Post, User]
+                        can :front, Content
+
+    elsif user.role? :friend
+                        can :read, :all
+                        cannot :manage, :all
+                        can :create, [Comment, Friendship]
+                        can :destroy, Friendship do |f|
+                          f.try(:user) == user
+                        end
+                        can :destroy, Comment do |c|
+                          c.try(:user) == user
+                        end
+                        can :update, Comment do |c|
+                          c.try(:user) == user
+                        end
+                        can :destroy, Comment do |c|
+                          c.try(:user) == user
+                        end
+                        can :front, Content
+                        can :show, [Post, User]
     
     elsif user.role? :commenter
                         can :read, :all
@@ -52,15 +89,8 @@ class Ability
                           c.try(:user) == user
                         end
                         can [:games, :add_game, :remove_game, :autocomplete_game_name], User
-                        can :show, [Post]
+                        can :show, [Post, User]
                         can :front, Content
-
-    elsif user.role? :friend
-                        can :read, :all
-                        cannot :manage, :all
-                        can :show, Post
-                        can :front, Content
-                        can [:show, :friend_request, :games, :add_game, :remove_game, :autocomplete_game_name], User
     
     else              # guest
                         cannot :manage, :all

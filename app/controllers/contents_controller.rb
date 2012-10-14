@@ -6,6 +6,9 @@ class ContentsController < ApplicationController
   
   def contact
   end
+  
+  def dashboard
+  end
 
   # GET /contents/1
   # GET /contents/1.xml
