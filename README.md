@@ -1,22 +1,32 @@
-Tinder gets you started. 
-========================
+Game Night!
+===========
+
+Game Night is a Web application for planning, tracking, and maintaining your weekly or monthly board game nights.
+
+Things to do on Game Night:
+---------------------------
+
+* Sign up!
+* Check out your dashboard
+* Create a new "Game Night"
+* Manage your game collection
+    * Add games
+    * Removes games
+* Manage your friends
+    * Add friends
+    * Search for friends
+    * Review your friends list
+* Manage Game Nights
+    * Blog about a Game Night
+    * Comment on posts about a Game Night
+    * Invite friends to a Game Night
+    * View all games availabe for a Game Night
 
 Current version: Rails 3.2.8
 
-Tinder currently includes:
---------------------------
-
-* Devise authentication 
-* CanCan authorization based on user roles
-* Blogging with comments using Redcarpet markdown
-* Rspec and capybara tests with guard and launchy for on-the-fly testing and debugging
-* formalize UI
-* modernizr JS library for handling old browsers
-* HTML5 markup with responsive grid-based layout
-
-Things to do when launching a new site with Tinder
+Things to do after cloning GameNight
 --------------------------------------------
 
+* rake db:migrate and rake db:migrate RAILS_ENV="test"
+* guard
 * Update initial settings in /config/settings.yml and each setting file in /config/settings/*.yml
-* Create git-ignored local settings (such as omniauth keys and secrets) with /config/settings/<environment>.local.yml
-* Add your capybara deploy script
