@@ -20,24 +20,35 @@ describe "Friends" do
       @friendship = friend.friendships.build(:friend_id => friend3.id)
       @friendship.save!
 
-            visit user_path(friend3)
-            page.should have_content("You are friends with")
-            click_link I18n.t('links.remove_friend')
-            page.should have_content(I18n.t('flash.removed_friendship'))
-            page.should have_content(I18n.t('links.add_friend'))
-        end
+      visit user_path(friend3)
+      page.should have_content("You are friends with")
+      click_link I18n.t('links.remove_friend')
+      page.should have_content(I18n.t('flash.removed_friendship'))
+      page.should have_content(I18n.t('links.add_friend'))
+    end
 
-        it "does not allow a copy of the same friendship" do
-            login(friend)
-            @friendship = friend.friendships.build(:friend_id => friend2.id)
-            page.should_not have_content("Add Friend")
-        end
+    it "does not allow a copy of the same friendship" do
+      login(friend)
+      @friendship = friend.friendships.build(:friend_id => friend2.id)
+      page.should_not have_content("Add Friend")
     end
 
     it "searches for an befriends a user" do 
+      login(friend)
+      visit dashboard_path
+      fill_in "email", :with => friend2.email
+      click_button "Search"
+      page.should have_content ("1 user found")
+      click_link "Add Friend"
+      page.should have_content ("You are friends with")
     end
 
-    it "searches for nobody" do 
+    it "should not match incomplete searches" do
+      login(friend)
+      visit dashboard_path
+      fill_in "email", :with => "gmail.com"
+      click_button "Search"
+      page.should have_content ("0 users found")
     end
   end
 

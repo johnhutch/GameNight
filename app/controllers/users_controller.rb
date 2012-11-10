@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.find_by_sql("SELECT * FROM users WHERE email like '%" + params[:email] + "%';")
+    @users = User.find_by_sql("SELECT * FROM users WHERE email='" + params[:email] + "';")
 
     respond_to do |format|
         format.html { render :action => "search" }
