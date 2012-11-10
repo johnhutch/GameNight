@@ -1,23 +1,27 @@
 FactoryGirl.define do
   factory :role do
-    factory :admin_role do
-     name 'admin' 
-    end
-
-    factory :author_role do 
-      name 'author'
+    factory :nobody_role do
+      name 'nobody'
     end
 
     factory :commenter_role do
       name 'commenter'
     end
 
+    factory :friend_role do
+      name 'friend'
+    end
+
+    factory :author_role do 
+      name 'author'
+    end
+
     factory :uploader_role do
       name 'uploader'
     end
 
-    factory :friend_role do
-      name 'friend'
+    factory :admin_role do
+     name 'admin' 
     end
   end
 
@@ -49,33 +53,57 @@ FactoryGirl.define do
     factory :author , :class => User do
       name { generate(:name) }
       email
-      after(:create) { |user| user.roles << FactoryGirl.create(:author_role) }
+      after(:create) { |user|
+        user.roles << FactoryGirl.create(:nobody_role)
+        user.roles << FactoryGirl.create(:commenter_role)
+        user.roles << FactoryGirl.create(:friend_role)
+        user.roles << FactoryGirl.create(:author_role)
+        user.roles << FactoryGirl.create(:uploader_role)
+      }
     end
 
     factory :uploader, :class => User do
       name { generate(:name) }
       email
-      after(:create) { |user| user.roles << FactoryGirl.create(:uploader_role) }
+      after(:create) { |user|
+        user.roles << FactoryGirl.create(:nobody_role)
+        user.roles << FactoryGirl.create(:commenter_role)
+        user.roles << FactoryGirl.create(:friend_role)
+        user.roles << FactoryGirl.create(:author_role)
+        user.roles << FactoryGirl.create(:uploader_role)
+      }
     end
 
     factory :commenter, :class => User do
       name { generate(:name) }
       email
-      after(:create) { |user| user.roles << FactoryGirl.create(:commenter_role) }
+      after(:create) { |user|
+        user.roles << FactoryGirl.create(:nobody_role)
+        user.roles << FactoryGirl.create(:commenter_role)
+      }
     end
 
     factory :friend, :class => User do
-      name
+      name { generate(:name) }
       email
-      after(:create) { |user| user.roles << FactoryGirl.create(:friend_role) }
+      after(:create) { |user|
+        user.roles << FactoryGirl.create(:nobody_role)
+        user.roles << FactoryGirl.create(:commenter_role)
+        user.roles << FactoryGirl.create(:friend_role)
+        user.roles << FactoryGirl.create(:author_role)
+        user.roles << FactoryGirl.create(:uploader_role)
+      }
     end
 
     factory :author_commenter, :class => User do
       name { generate(:name) }
       email
       after(:create) { |user| 
+        user.roles << FactoryGirl.create(:nobody_role)
+        user.roles << FactoryGirl.create(:commenter_role)
+        user.roles << FactoryGirl.create(:friend_role)
         user.roles << FactoryGirl.create(:author_role)
-        user.roles << FactoryGirl.create(:commenter_role) 
+        user.roles << FactoryGirl.create(:uploader_role)
       }
     end
 
@@ -83,8 +111,11 @@ FactoryGirl.define do
       name { generate(:name) }
       email
       after(:create) { |user|
+        user.roles << FactoryGirl.create(:nobody_role)
+        user.roles << FactoryGirl.create(:commenter_role)
         user.roles << FactoryGirl.create(:friend_role)
         user.roles << FactoryGirl.create(:author_role)
+        user.roles << FactoryGirl.create(:uploader_role)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)

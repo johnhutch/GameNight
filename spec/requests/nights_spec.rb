@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe "Nights" do
     let(:night) {FactoryGirl.create(:night)}
-    let(:user) {FactoryGirl.create(:user)}
-    let(:user2) {FactoryGirl.create(:user)}
-    let(:user3) {FactoryGirl.create(:user)}
-    let(:user4) {FactoryGirl.create(:user)}
+    let(:user) {FactoryGirl.create(:friend)}
+    let(:user2) {FactoryGirl.create(:friend)}
+    let(:user3) {FactoryGirl.create(:friend)}
+    let(:user4) {FactoryGirl.create(:friend)}
     let(:game) {FactoryGirl.create(:game)}
     let(:game2) {FactoryGirl.create(:game)}
     let(:game3) {FactoryGirl.create(:game)}
