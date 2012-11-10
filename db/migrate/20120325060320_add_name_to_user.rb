@@ -8,6 +8,7 @@ class AddNameToUser < ActiveRecord::Migration
     author_role =    Role.create(:name => "author")
     commenter_role =  Role.create(:name => "commenter")
     friend_role =  Role.create(:name => "friend")
+    nobody_role =  Role.create(:name => "nobody")
     
     # Create default admin users
     user = User.create do |u|
