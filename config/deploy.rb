@@ -28,8 +28,8 @@ require 'bundler/capistrano'
 ##                                         ##
 #############################################
 
-GITHUB_REPOSITORY_NAME = 'r12-team-105'
-LINODE_SERVER_HOSTNAME = 'gamenight.r12.railsrumble.com'
+GITHUB_REPOSITORY_NAME = 'GameNight'
+LINODE_SERVER_HOSTNAME = '50.116.51.147'
 
 #############################################
 #############################################
@@ -38,8 +38,8 @@ LINODE_SERVER_HOSTNAME = 'gamenight.r12.railsrumble.com'
 
 set :bundle_flags,               "--deployment"
 
-set :application,                "railsrumble"
-set :deploy_to,                  "/var/www/apps/railsrumble"
+set :application,                "#{GITHUB_REPOSITORY_NAME}"
+set :deploy_to,                  "/var/www/apps/#{GITHUB_REPOSITORY_NAME}"
 set :normalize_asset_timestamps, false
 set :rails_env,                  "production"
 
@@ -60,7 +60,7 @@ set :admin_runner,               "www-data"
 
 # SCM Options
 set :scm,        :git
-set :repository, "git@github.com:railsrumble/#{GITHUB_REPOSITORY_NAME}.git"
+set :repository, "git@github.com:johnhutch/#{GITHUB_REPOSITORY_NAME}.git"
 set :branch,     "master"
 
 # Roles
