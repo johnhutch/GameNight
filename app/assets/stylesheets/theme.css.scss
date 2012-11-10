@@ -19,11 +19,6 @@ $dark_boxshadow: 0px 2px 4px #333;
 $light_boxshadow: 0px 2px 4px #ccc;
 $under_shadow: 0px 8px 6px -6px #999;
 
-
-body { background: #f6f1ea;  color: #444440; }
-#container { position: relative; background-color: #fdfdfc; padding: 20px; @include border-box; border: 1px solid #aaa; }
-h1, h2, h3, h4, h5, h6 {color: #999992;}
-
 #notice { color: green; }
 .field_with_errors { padding: 2px; background-color: red; display: table; }
 #error_explanation { border: 2px solid red; padding: 7px; padding-bottom: 0; margin-bottom: 20px; background-color: #f0f0f0;
@@ -39,41 +34,11 @@ h1, h2, h3, h4, h5, h6 {color: #999992;}
 .caution { background-color: #992222; }
 .go {background-color: #229922; }
 
-header { background-color: #efefec; margin: 0 0 1em 0; display: block;  border-bottom: 1px solid #666; position:relative; height: 44px; @include box-shadow($under_shadow);
-    h1 { @include text-shadow($light_letterpress); position:absolute; top: 6px;  right: 40.3%; margin: 0; padding: 0; text-transform: uppercase; font-size: 2.2em;
-        a { color: #bbb; text-decoration: none; 
-            &:hover { color: #ddd; }
-            &:visited { color: #bbb; }
-        }
-    }
-}
-
-header nav {float: right; margin-right: 5%;
-    ul {list-style-type: none; margin: 0; padding: 0; 
-        li {margin: 0; padding: 0; float: left;
-            a {display: block; padding: 1.1em 1em 14px 1em; text-decoration: none; color: #999; 
-                &:hover {background-color: #555; color: #aaa}
-                &:visited {color: #999; }
-            }
-            ul {display: none;}
-        }
-    }
-    .dropdown {position: relative; z-index: 200;
-        ul { position:absolute; top:44px; left:0; display:none; width:150px; list-style-type:none; z-index:200; background-color: white; @include box-shadow($under_shadow); border: 1px solid #aaa;
-            li {clear: both; float: none;}
-            a {display: block; padding: 5px; text-decoration: none;}
-        }
-    }
-    .hover {display: block !important;}
-}
-
 section#vote { text-align: center; margin-top: 1em; 
     a { display: block; margin: 0px auto; text-decoration: none; color: white; background-color: #333;  @include border-radius(3px); max-width: 320px; padding: 10px 5px; @include border-box;
     }
 }
 
-/****** Sign up / Sign in ******/
-/*-----------------------------*/
 
 /*** authentications ***/
 .authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius(8px); 
