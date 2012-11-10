@@ -1,12 +1,13 @@
-<div class="friend_search clearfix">
-    <h3>Search for new friends by e-mail</h3>
-    <%= render :partial => '/users/search_form' %>
-</div>
-
 <% if @users %>
     <div class="friend_results clearfix">
         <h3>Friend search results</h3>
+        <p class="notice user_count"><%= pluralize(@users.count, "user") %> found.</p>
         <%= render :partial => '/users/search_results', :locals => {:users => @users}  %>
     </div>
 <% end %>
+
+<div class="friend_search clearfix">
+    <h4>Search for new friends by e-mail</h4>
+    <%= render :partial => '/users/search_form' %>
+</div>
 

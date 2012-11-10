@@ -4,7 +4,7 @@
             <p>You are friends with <%= user.name %></p>
             (<%= link_to t('links.remove_friend'), associated_friendship(user), :method => :delete %>)
         <% else %>
-            <%= link_to t('links.add_friend'), friendships_path(:friend_id => user), :method => :post %>
+            <%= link_to t('links.add_friend'), friendships_path(:friend_id => user), :method => :post, :class => "btn" %>
         <% end %>
     <% end %>
 </div>

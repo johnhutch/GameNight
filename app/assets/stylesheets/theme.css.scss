@@ -79,3 +79,8 @@ ul#games {margin: 0; padding: 0; list-style-type: none;
         li { margin: 0; padding: 0; background-color: transparent; border-width: 0px; float: none;}
     }
 }
+
+/**** FRIEND SEARCH ****/
+.friend_results ul {list-style-type: none; margin: 0; padding: 0; }
+.friend_results ul li { margin: 0 0 1.4em 0; padding: 0; }
+.friend_results h5 { margin-bottom: 5px;}
