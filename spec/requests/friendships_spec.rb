@@ -20,11 +20,18 @@ describe "Friends" do
       @friendship = friend.friendships.build(:friend_id => friend3.id)
       @friendship.save!
 
-      visit user_path(friend3)
-      page.should have_content("You are friends with")
-      click_link I18n.t('links.remove_friend')
-      page.should have_content(I18n.t('flash.removed_friendship'))
-      page.should have_content(I18n.t('links.add_friend'))
+            visit user_path(friend3)
+            page.should have_content("You are friends with")
+            click_link I18n.t('links.remove_friend')
+            page.should have_content(I18n.t('flash.removed_friendship'))
+            page.should have_content(I18n.t('links.add_friend'))
+        end
+
+        it "does not allow a copy of the same friendship" do
+            login(friend)
+            @friendship = friend.friendships.build(:friend_id => friend2.id)
+            page.should_not have_content("Add Friend")
+        end
     end
 
     it "searches for an befriends a user" do 

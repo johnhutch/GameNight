@@ -30,6 +30,8 @@ en:
     comment_problem:        "There was a problem saving your comment."
     friendship_added:       "Friend added."
     removed_friendship:     "Removed friend."
+    friendship_exists:      "You are already friends with that person"
+    friendship_problem:     "Unable to create friendship (You might already be friends)."
     night_created:          "Your new night was successfully created."
     night_removed:          "You have been removed yourself from the game night"
     night_deleted:          "The game night has been deleted."

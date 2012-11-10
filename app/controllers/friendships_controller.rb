@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
                 format.html { redirect_to(@user, :notice => t('flash.friendship_added')) }
                 format.xml  { head :ok }
             else
-                format.html { redirect_to(@user, :notice => 'Unable to add friendship.') }
+                format.html { redirect_to(@user, :notice => t('flash.friendship_problem')) }
                 format.xml  { render :xml => @Friendship.errors, :status => :unprocessable_entity }
             end
         end
