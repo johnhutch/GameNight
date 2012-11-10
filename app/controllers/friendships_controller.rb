@@ -6,6 +6,7 @@ class FriendshipsController < ApplicationController
         @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
         respond_to do |format|
             if @friendship.save
+                NightMailer.friended_email(@user, current_user).deliver
                 format.html { redirect_to(@user, :notice => t('flash.friendship_added')) }
                 format.xml  { head :ok }
             else
