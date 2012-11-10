@@ -41,6 +41,7 @@ describe "Friends" do
       page.should have_content ("1 user found")
       click_link "Add Friend"
       page.should have_content ("You are friends with")
+      ActionMailer::Base.deliveries.last.to.should == [friend2.email]
     end
 
     it "should not match incomplete searches" do
@@ -48,7 +49,16 @@ describe "Friends" do
       visit dashboard_path
       fill_in "email", :with => "gmail.com"
       click_button "Search"
-      page.should have_content ("0 users found")
+      page.should have_content ("No one with the email")
+    end
+
+    it "should invite a user not yet registered" do
+      login(friend)
+      visit dashboard_path
+      fill_in "email", :with => "johnhutch+newbie@gmail.com"
+      click_button "Search"
+      click_button "Invite johnhutch+newbie@gmail.com to Game Night!"
+      ActionMailer::Base.deliveries.last.to.should == ["johnhutch+newbie@gmail.com"]
     end
   end
 

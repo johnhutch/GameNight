@@ -24,6 +24,7 @@ Tinder::Application.routes.draw do
         end
         collection do
             post :search
+            post :invite
         end
         resources :roles
     end

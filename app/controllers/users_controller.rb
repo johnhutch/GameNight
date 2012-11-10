@@ -40,9 +40,20 @@ class UsersController < ApplicationController
 
   def search
     @users = User.find_by_sql("SELECT * FROM users WHERE email='" + params[:email] + "';")
+    @email = params[:email]
 
     respond_to do |format|
         format.html { render :action => "search" }
+    end
+  end
+
+  def invite
+    @email = params[:email]
+    NightMailer.invite_email(@email, current_user).deliver
+
+    respond_to do |format|
+      format.html { redirect_to(dashboard_path, :notice => 'Your invite to #{@email} has been sent.') }
+      format.xml  { head :ok }
     end
   end
 
