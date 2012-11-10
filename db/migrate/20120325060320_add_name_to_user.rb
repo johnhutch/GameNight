@@ -22,6 +22,7 @@ class AddNameToUser < ActiveRecord::Migration
     user.roles << uploader_role
     user.roles << commenter_role
     user.roles << friend_role
+    user.roles << nobody_role
   end
 
   def self.down
