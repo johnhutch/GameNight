@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe "Nights" do
-    let(:night) {FactoryGirl.create(:night)}
-    let(:user) {FactoryGirl.create(:friend)}
+    let(:night1) {FactoryGirl.create(:night)}
+    let(:user1) {FactoryGirl.create(:friend)}
     let(:user2) {FactoryGirl.create(:friend)}
     let(:user3) {FactoryGirl.create(:friend)}
     let(:user4) {FactoryGirl.create(:friend)}
-    let(:game) {FactoryGirl.create(:game)}
+    let(:game1) {FactoryGirl.create(:game)}
     let(:game2) {FactoryGirl.create(:game)}
     let(:game3) {FactoryGirl.create(:game)}
     let(:game4) {FactoryGirl.create(:game)}
@@ -18,12 +18,12 @@ describe "Nights" do
 
     let(:author1) {FactoryGirl.create(:author)}
     let(:post1) {FactoryGirl.create(:post)}
-    let(:photo) { FactoryGirl.create(:photo, user: user) }
+    let(:photo) { FactoryGirl.create(:photo, user: user1) }
     let(:nobody1) {FactoryGirl.create(:nobody)}
 
     describe "POST /nights" do
         it "gamer user can create a game night" do
-            login(user)
+            login(user1)
 
             visit dashboard_path
             fill_in "night_name", :with => "Sample Night"
@@ -34,37 +34,61 @@ describe "Nights" do
     end
 
     describe "SHOW /night/:id" do
+
+        it "should not allow a user to see a Game Night if they are not a member" do
+          login(user1)
+
+          night1
+          night1.users.pop
+
+          visit night_path(night1)
+          page.should have_content("You are not authorized")
+        end
+
+        it "should allow a user to see a Game Night if they are a member" do
+          login(user1)
+
+          night1
+          night1.users << user1
+
+          visit night_path(night1)
+          page.should have_content(night1.name)
+        end
+
         it "shows all of the games owned by the night across all users" do
-            user.games << game
-            user.games << game2
-            user.games << game3
+            user1.games << game1
+            user1.games << game2
+            user1.games << game3
+
             user2.games << game3
             user2.games << game4
             user2.games << game5
+
             user3.games << game5
             user3.games << game6
             user3.games << game7
+
             user4.games << game7
             user4.games << game8
 
-            night.users << user
-            night.users << user2
-            night.users << user3
-            night.users << user4
+            night1.users << user1
+            night1.users << user2
+            night1.users << user3
+            night1.users << user4
 
-            visit night_path(night)
+            login(user1)
 
-            page.should have_content(game.name)
+            visit night_path(night1)
+
+            page.should have_content(game1.name)
             page.should have_content(game3.name)
             page.should have_content(game6.name)
         end
-    end
 
-    describe "SHOW night/:id" do
         it "should allow an author to post a post", :js => true do
           login(author1)
 
-          visit new_night_post_path(night)
+          visit new_night_post_path(night1)
           fill_in "Title", :with => "A Sample Game Night Post Title"
           fill_in "Body", :with => "this is a post that belongs to a game night"
           click_link I18n.t('links.add_a_photo')
@@ -81,7 +105,7 @@ describe "Nights" do
         it "should fail validation when the title and body are not filled out" do
           login(author1)
 
-          visit new_night_post_path(night)
+          visit new_night_post_path(night1)
           click_button I18n.t('buttons.create_post')
           page.should have_content("Title can't be blank")
           page.should have_content("Body can't be blank")
@@ -90,7 +114,7 @@ describe "Nights" do
         it "should not allow a vanilla user to post a post" do
           login(nobody1)
           
-          visit new_night_post_path(night)
+          visit new_night_post_path(night1)
           page.should have_content("You are not authorized")
         end
   end

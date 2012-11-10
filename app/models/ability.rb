@@ -29,8 +29,8 @@ class Ability
     can [:create, :read, :autocomplete_game_name], Game
     can :create, Friendship
     can :destroy, Friendship, :user_id => @user.id
-    can [:create, :read], Night
-    can :update, Night, :users => { :id => @user.id } # User can update only those Nights that the User belongs to
+    can :create, Night
+    can [:read, :update], Night, :users => { :id => @user.id } # only if the user belongs to that Game Night
     can [:search, :friend_request], User
   end
 
