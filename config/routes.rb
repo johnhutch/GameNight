@@ -29,7 +29,9 @@ Tinder::Application.routes.draw do
     end
     resources :friendships
 
-    resources :nights 
+    resources :nights do
+        resources :posts #, controllers: {nights: "nights"}
+    end
 
     # content routes
     match "/admin" => "contents#admin", :as => :admin

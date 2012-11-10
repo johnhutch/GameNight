@@ -5,6 +5,7 @@
 
 <section id="blog" class="blog column">
     <h3>News and updates for <%= @night.name%></h3>
+    <%= link_to "New blog post", new_night_post_path(@night), :class => "btn" %>
 </section>
 
 <section id="games" class="games column">

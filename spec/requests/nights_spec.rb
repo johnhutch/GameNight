@@ -14,6 +14,12 @@ describe "Nights" do
     let(:game6) {FactoryGirl.create(:game)}
     let(:game7) {FactoryGirl.create(:game)}
     let(:game8) {FactoryGirl.create(:game)}
+    let(:post1) {FactoryGirl.create(:post)}
+
+    let(:author1) {FactoryGirl.create(:author)}
+    let(:post1) {FactoryGirl.create(:post)}
+    let(:photo) { FactoryGirl.create(:photo, user: user) }
+    let(:nobody1) {FactoryGirl.create(:nobody)}
 
     describe "POST /nights" do
         it "gamer user can create a game night" do
@@ -24,19 +30,6 @@ describe "Nights" do
             click_button I18n.t('buttons.create_night')
             page.should have_content(I18n.t('flash.night_created'))
             page.should have_content("Sample Night")
-        end
-
-        it "gamer can delete a game night" do
-            user
-            user2
-            user3
-            login(user)
-            user.nights.create!
-
-            visit dashboard_path
-            click_link I18n.t('links.remove_night')
-            page.should have_content(I18n.t('flash.night_removed'))
-            page.should have_content("You have no game nights set up.")
         end
     end
 
@@ -61,9 +54,44 @@ describe "Nights" do
 
             visit night_path(night)
 
-            page.should have_content(user2.name)
+            page.should have_content(game.name)
             page.should have_content(game3.name)
             page.should have_content(game6.name)
         end
     end
+
+    describe "SHOW night/:id" do
+        it "should allow an author to post a post", :js => true do
+          login(author1)
+
+          visit new_night_post_path(night)
+          fill_in "Title", :with => "A Sample Game Night Post Title"
+          fill_in "Body", :with => "this is a post that belongs to a game night"
+          click_link I18n.t('links.add_a_photo')
+          fill_in "Photo Title", :with => "A Sample Game Night Photo Title"
+          fill_in "Photo Caption", :with => "this is the photo caption that belongs to game night"
+          attach_file("File Upload","#{Rails.root}/spec/samples/hutchhead.png")
+          click_button I18n.t('buttons.create_post')
+          page.should have_content("A Sample Game Night Post Title")
+          page.should have_content("A Sample Game Night Photo Title")
+          page.should have_content("this is the photo caption that belongs to game night")
+          page.should have_css('img', :src => photo.image.url(:thumb))
+        end
+        
+        it "should fail validation when the title and body are not filled out" do
+          login(author1)
+
+          visit new_night_post_path(night)
+          click_button I18n.t('buttons.create_post')
+          page.should have_content("Title can't be blank")
+          page.should have_content("Body can't be blank")
+        end
+
+        it "should not allow a vanilla user to post a post" do
+          login(nobody1)
+          
+          visit new_night_post_path(night)
+          page.should have_content("You are not authorized")
+        end
+  end
 end
