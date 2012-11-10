@@ -1,4 +1,5 @@
 class NightsController < ApplicationController
+  #load_and_authorize_resource
   # GET /nights
   # GET /nights.json
   def index

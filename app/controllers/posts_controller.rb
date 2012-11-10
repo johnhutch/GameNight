@@ -26,7 +26,12 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @post = Post.new
+    @night = Night.find(params[:night_id]) rescue false
+    if @night
+      @post = @night.posts.build
+    else
+      @post = Post.new # night_id = NULL here (admin post, probably)
+    end
 
     respond_to do |format|
       format.html # new.html.erb

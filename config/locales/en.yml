@@ -8,6 +8,7 @@ en:
     update_comment:         "Update your comment"
     post_a_comment:         "Post a comment"
     add_a_game:             "Add a game to your collection"
+    add_blog_post:          "New blog post"
   buttons:
     reset_password:         "Send me reset password instructions"
     change_password:        "Change my password"
