@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Comments" do
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) {FactoryGirl.create(:nobody)}
   let(:admin) {FactoryGirl.create(:admin)}
   let(:commenter) {FactoryGirl.create(:commenter)}
   let(:author_commenter) {FactoryGirl.create(:author_commenter)}

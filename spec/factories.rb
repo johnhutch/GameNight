@@ -49,16 +49,24 @@ FactoryGirl.define do
       email
       after(:create) { |user| user.roles << FactoryGirl.create(:admin_role) }
     end
+
+    factory :nobody, :class => User do
+      name { generate(:name) }
+      email
+      after(:create) { |user|
+        user.roles.delete(Role.find_by_name("commenter"))
+        user.roles.delete(Role.find_by_name("friend"))
+        user.roles.delete(Role.find_by_name("author"))
+        user.roles.delete(Role.find_by_name("uploader"))
+      }
+    end
     
     factory :author , :class => User do
       name { generate(:name) }
       email
       after(:create) { |user|
-        user.roles << FactoryGirl.create(:nobody_role)
-        user.roles << FactoryGirl.create(:commenter_role)
-        user.roles << FactoryGirl.create(:friend_role)
-        user.roles << FactoryGirl.create(:author_role)
-        user.roles << FactoryGirl.create(:uploader_role)
+        user.roles.delete(Role.find_by_name("commenter"))
+        user.roles.delete(Role.find_by_name("uploader"))
       }
     end
 
@@ -66,11 +74,7 @@ FactoryGirl.define do
       name { generate(:name) }
       email
       after(:create) { |user|
-        user.roles << FactoryGirl.create(:nobody_role)
-        user.roles << FactoryGirl.create(:commenter_role)
-        user.roles << FactoryGirl.create(:friend_role)
-        user.roles << FactoryGirl.create(:author_role)
-        user.roles << FactoryGirl.create(:uploader_role)
+        user.roles.delete(Role.find_by_name("commenter"))
       }
     end
 
@@ -78,44 +82,25 @@ FactoryGirl.define do
       name { generate(:name) }
       email
       after(:create) { |user|
-        user.roles << FactoryGirl.create(:nobody_role)
-        user.roles << FactoryGirl.create(:commenter_role)
+        user.roles.delete(Role.find_by_name("author"))
+        user.roles.delete(Role.find_by_name("uploader"))
       }
     end
 
     factory :friend, :class => User do
       name { generate(:name) }
       email
-      after(:create) { |user|
-        user.roles << FactoryGirl.create(:nobody_role)
-        user.roles << FactoryGirl.create(:commenter_role)
-        user.roles << FactoryGirl.create(:friend_role)
-        user.roles << FactoryGirl.create(:author_role)
-        user.roles << FactoryGirl.create(:uploader_role)
-      }
     end
 
     factory :author_commenter, :class => User do
       name { generate(:name) }
       email
-      after(:create) { |user| 
-        user.roles << FactoryGirl.create(:nobody_role)
-        user.roles << FactoryGirl.create(:commenter_role)
-        user.roles << FactoryGirl.create(:friend_role)
-        user.roles << FactoryGirl.create(:author_role)
-        user.roles << FactoryGirl.create(:uploader_role)
-      }
     end
 
     factory :gamer, :class => User do
       name { generate(:name) }
       email
       after(:create) { |user|
-        user.roles << FactoryGirl.create(:nobody_role)
-        user.roles << FactoryGirl.create(:commenter_role)
-        user.roles << FactoryGirl.create(:friend_role)
-        user.roles << FactoryGirl.create(:author_role)
-        user.roles << FactoryGirl.create(:uploader_role)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)
         user.games << FactoryGirl.create(:game)

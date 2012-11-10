@@ -31,7 +31,7 @@ describe "Users" do
   end
 
   describe "POST /users/" do 
-    it "signs a user up" do
+    it "signs a user up and assigns initial roles" do
       visit new_user_registration_path
       page.should have_content("Sign up")
       fill_in "Email", :with => "test@email.com"
@@ -40,6 +40,7 @@ describe "Users" do
       fill_in "Name", :with => "New user!"
       click_button "Sign up"
       page.should have_content("New user!")
+
       page.should have_content( I18n.t('devise.registrations.signed_up') )
     end
   end

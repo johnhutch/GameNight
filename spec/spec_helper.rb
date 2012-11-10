@@ -60,6 +60,12 @@ Spork.each_run do
     
     config.before(:each) do
       DatabaseCleaner.start
+      admin_role =    Role.create(:name => "admin")
+      uploader_role =     Role.create(:name => "uploader")
+      author_role =    Role.create(:name => "author")
+      commenter_role =  Role.create(:name => "commenter")
+      friend_role =  Role.create(:name => "friend")
+      nobody_role =  Role.create(:name => "nobody")
     end
 
     config.after(:each) do

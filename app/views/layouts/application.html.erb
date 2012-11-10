@@ -55,12 +55,14 @@
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Roll For Initiative<b class="caret"></b></a>
                                   <ul class="dropdown-menu">
                                       <%= link_to "Create a game night", new_night_path %></li>
+                                      <% if current_user.role? :admin %>
                                       <li class="divider"></li>
                                       <li class="nav-header">Admin</li>
                                       <li><%= link_to "New blog post", new_post_path %></li>
                                       <li><%= link_to "Upload a photo", new_photo_path %></li>
                                       <li><a href="#">Separated link</a></li>
                                       <li><a href="#">One more separated link</a></li>
+                                      <% end %>
                                   </ul>
                               </li>
                               <li class="dropdown">

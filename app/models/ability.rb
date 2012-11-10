@@ -31,7 +31,7 @@ class Ability
     can :destroy, Friendship, :user_id => @user.id
     can :create, Night
     can :update, Night, :users => { :id => @user.id } # User can update only those Nights that the User belongs to
-    can :search, User
+    can [:search, :friend_request], User
   end
 
   def author
