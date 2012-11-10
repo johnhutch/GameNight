@@ -39,6 +39,8 @@ section#vote { text-align: center; margin-top: 1em;
     }
 }
 
+nav {min-height: 50px;}
+.navbar-inverse .brand {color: #555;}
 
 /*** authentications ***/
 .authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius(8px); 

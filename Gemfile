@@ -8,7 +8,6 @@ gem 'coffee-rails', '~> 3.2.2'
 gem 'uglifier', '>= 1.2.6'
 end
 
-gem 'therubyracer'
 gem 'jquery-rails', '~> 2.0.2'
 #gem 'pg'
 gem 'mysql2'
@@ -26,6 +25,11 @@ gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 gem 'rails_config'
 
 gem "rails3-jquery-autocomplete"
+
+group :production do
+  gem 'therubyracer'
+  gem 'execjs'
+end
 
 group :development, :test do
     gem 'sqlite3'
