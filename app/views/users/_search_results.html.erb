@@ -1,6 +1,6 @@
 <ul>
 	<% users.each do |u| %>
-		<li><%= link_to u.name, u %>: <%= u.email %>
+		<li><h5><%= link_to u.name, u %></h5>
             <%= render :partial => 'users/friendme_button', :locals => {:user => u} %>
             </li>
 	<% end %>

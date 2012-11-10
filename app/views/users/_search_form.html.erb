@@ -1,5 +1,5 @@
 <%= form_tag search_users_path do %>
-	<%= label_tag "Email" %>
-	<%= text_field_tag :email %>
-	<%= submit_tag "Search" %> 
+	<%= label_tag "Enter your friend's email address" %>
+	<%= text_field_tag :email, nil, :placeholder => "joe@blow.com", :required => "required" %>
+	<%= submit_tag "Search", :class => "btn" %> 
 <% end %> 

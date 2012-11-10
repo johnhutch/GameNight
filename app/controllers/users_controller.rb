@@ -39,14 +39,10 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.find_by_sql("SELECT * FROM users WHERE email like '%" + params[:email] + "%';")
+    @users = User.find_by_sql("SELECT * FROM users WHERE email='" + params[:email] + "';")
 
     respond_to do |format|
-      if @users.empty?
-        format.html { redirect_to(dashboard_path, :notice => "No users found.") }
-      else
         format.html { render :action => "search" }
-      end
     end
   end
 
