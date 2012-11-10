@@ -26,6 +26,12 @@ describe "Friends" do
             page.should have_content(I18n.t('flash.removed_friendship'))
             page.should have_content(I18n.t('links.add_friend'))
         end
+
+        it "does not allow a copy of the same friendship" do
+            login(friend)
+            @friendship = friend.friendships.build(:friend_id => friend2.id)
+            page.should_not have_content("Add Friend")
+        end
     end
 
 end
