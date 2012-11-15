@@ -27,11 +27,8 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @night = Night.find(params[:night_id]) rescue false
-    if @night
-      @post = @night.posts.build
-    else
-      @post = Post.new # night_id = NULL here (admin post, probably)
-    end
+    
+    @post = @night.posts.build # night_id = NULL here (admin post, probably)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,7 +44,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @post = current_user.posts.build(params[:post])
+    @post.update_attributes(params[:post])
+    raise @post.to_yaml
+    current_user.posts.build(@post)
 
     respond_to do |format|
       if @post.save

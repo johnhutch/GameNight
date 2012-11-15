@@ -87,6 +87,7 @@ describe "Nights" do
 
         it "should allow an author to post a post", :js => true do
           login(author1)
+          night1.users << author1
 
           visit new_night_post_path(night1)
           fill_in "Title", :with => "A Sample Game Night Post Title"
@@ -117,5 +118,23 @@ describe "Nights" do
           visit new_night_post_path(night1)
           page.should have_content("You are not authorized")
         end
+
+        it "should display the latest blog post on the game night page", :js => true do
+          login(author1)
+          night1.users << author1
+
+          visit new_night_post_path(night1)
+          fill_in "Title", :with => "A Sample Game Night Post Title"
+          fill_in "Body", :with => "this is a post that belongs to a game night"
+          click_link I18n.t('links.add_a_photo')
+          fill_in "Photo Title", :with => "A Sample Game Night Photo Title"
+          fill_in "Photo Caption", :with => "this is the photo caption that belongs to game night"
+          attach_file("File Upload","#{Rails.root}/spec/samples/hutchhead.png")
+          click_button I18n.t('buttons.create_post')
+
+          visit night_path(night1)
+          page.should have_content("A Sample Game Night Post Title")
+        end
+
   end
 end

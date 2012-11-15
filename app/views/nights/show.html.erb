@@ -6,6 +6,10 @@
 <section id="blog" class="blog column">
     <h3>News and updates for <%= @night.name%></h3>
     <%= link_to "New blog post", new_night_post_path(@night), :class => "btn" %>
+    <% if @night.posts.blank? %>
+		<p>This Game Night has no blog posts yet.</p>
+	<% end %>
+  <%= render :partial => 'layouts/post_preview', :collection => @posts %>
 </section>
 
 <section id="games" class="games column">
