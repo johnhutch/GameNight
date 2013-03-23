@@ -100,7 +100,7 @@ describe "Nights" do
           page.should have_content("A Sample Game Night Post Title")
           page.should have_content("A Sample Game Night Photo Title")
           page.should have_content("this is the photo caption that belongs to game night")
-          page.should have_css('img', :src => photo.image.url(:thumb))
+          page.should have_xpath("//img[contains(@src,\"hutchhead.png\")]") 
         end
         
         it "should fail validation when the title and body are not filled out" do

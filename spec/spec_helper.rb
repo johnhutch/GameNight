@@ -76,8 +76,8 @@ Spork.each_run do
 
   def login(user)
     visit new_user_session_path
-    fill_in "Email", :with => user.email
-    fill_in "Password", :with => user.password
+    fill_in "sign_in_email", :with => user.email
+    fill_in "sign_in_password", :with => user.password
     click_button "Sign in"
     page.should have_content(I18n.t('flash.signed_in'))
   end

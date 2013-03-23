@@ -43,12 +43,6 @@ FactoryGirl.define do
     name { generate(:name) }
     email
     password 'secret'
-    
-    factory :admin, :class => User do
-      name { generate(:name) }
-      email
-      after(:create) { |user| user.roles << FactoryGirl.create(:admin_role) }
-    end
 
     factory :nobody, :class => User do
       name { generate(:name) }
@@ -60,9 +54,15 @@ FactoryGirl.define do
         user.roles.delete(Role.find_by_name("uploader"))
       }
     end
-    
+
+    factory :admin, :class => User do
+      name 
+      email
+      after(:create) { |user| user.roles << FactoryGirl.create(:admin_role) }
+    end
+
     factory :author , :class => User do
-      name { generate(:name) }
+      name 
       email
       after(:create) { |user|
         user.roles.delete(Role.find_by_name("commenter"))
@@ -71,7 +71,7 @@ FactoryGirl.define do
     end
 
     factory :uploader, :class => User do
-      name { generate(:name) }
+      name 
       email
       after(:create) { |user|
         user.roles.delete(Role.find_by_name("commenter"))
@@ -79,7 +79,7 @@ FactoryGirl.define do
     end
 
     factory :commenter, :class => User do
-      name { generate(:name) }
+      name 
       email
       after(:create) { |user|
         user.roles.delete(Role.find_by_name("author"))
@@ -88,17 +88,17 @@ FactoryGirl.define do
     end
 
     factory :friend, :class => User do
-      name { generate(:name) }
+      name 
       email
     end
 
     factory :author_commenter, :class => User do
-      name { generate(:name) }
+      name 
       email
     end
 
     factory :gamer, :class => User do
-      name { generate(:name) }
+      name 
       email
       after(:create) { |user|
         user.games << FactoryGirl.create(:game)

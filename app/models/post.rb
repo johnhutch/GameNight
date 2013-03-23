@@ -8,7 +8,14 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :title, :body
   
-  attr_accessible :title, :body, :photos_attributes
+  attr_accessible :title, :body, :photos_attributes, :night_id
+
+  scope :is_published, lambda{ |published| where(published: published) unless published.nil? }
+
+  def publish_me
+    self.published = true
+    self.published_at = Time.now
+  end
 
   def published?
     self.published ? self.published_string : "Not published"
