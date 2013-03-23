@@ -1,24 +1,18 @@
+// SUSY grid settings
+@include border-box-sizing;
+$total-columns: 12;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width; 
 
-@mixin border-box {
-    -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -box-sizing: border-box;
-}
+// Compass & Theme variables
+$default-border-radius: 5px; 
+$light-letterpress-textshadow: 0 2px 3px #fff;
+$dark_boxshadow: #333 0px 2px 4px;
+$light_boxshadow: #ccc 0px 2px 4px;
+$under_boxshadow: #999 0px 8px 6px -6px;
 
-@mixin text-shadow($shadows) {
-    -webkit-text-shadow: $shadows; -moz-text-shadow: $shadows; text-shadow: $shadows;
-}
-$light_letterpress: 0 2px 3px #fff;
-
-@mixin border-radius($params) {
-    -webkit-border-radius: $params; -moz-border-radius: $params; border-radius: $params;
-}
-
-@mixin box-shadow($shadows) {
-    -webkit-box-shadow: $shadows; -moz-box-shadow: $shadows; box-shadow: $shadows;
-}
-$dark_boxshadow: 0px 2px 4px #333;
-$light_boxshadow: 0px 2px 4px #ccc;
-$under_shadow: 0px 8px 6px -6px #999;
-
+#container { position: relative; padding-top: $grid-padding; padding-bottom: $grid-padding; @include container; }
 #notice { color: green; }
 .field_with_errors { padding: 2px; background-color: red; display: table; }
 #error_explanation { border: 2px solid red; padding: 7px; padding-bottom: 0; margin-bottom: 20px; background-color: #f0f0f0;
@@ -26,21 +20,6 @@ $under_shadow: 0px 8px 6px -6px #999;
     ul li { font-size: 12px; list-style: square; } 
 }
 
-.button { font-weight: bold; display: block; padding: 8px 16px; color: #ddd; text-decoration: none; @include border-radius(4px); width: auto; cursor: pointer; text-align: center; margin-bottom: .4em;
-    &:hover {color: #ddd}
-    &:active {color: #ddd}
-    &:visited {color: #ddd}
-}
-.caution { background-color: #992222; }
-.go {background-color: #229922; }
-
-section#vote { text-align: center; margin-top: 1em; 
-    a { display: block; margin: 0px auto; text-decoration: none; color: white; background-color: #333;  @include border-radius(3px); max-width: 320px; padding: 10px 5px; @include border-box;
-    }
-}
-
-nav {min-height: 50px;}
-.navbar-inverse .brand {color: #555;}
 
 /*** authentications ***/
 .authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius(8px); 
@@ -84,3 +63,21 @@ ul#games {margin: 0; padding: 0; list-style-type: none;
 .friend_results ul {list-style-type: none; margin: 0; padding: 0; }
 .friend_results ul li { margin: 0 0 1.4em 0; padding: 0; }
 .friend_results h5 { margin-bottom: 5px;}
+
+
+/****** MEDIA QUERIES ********/
+/*---------------------------*/
+
+@media only screen and (min-width: 320px) {
+  header h1 {float: left; margin-left: 5%; position: static; margin-top: 6px;}
+}
+
+@media only screen and (min-width: 480px) {
+}
+
+@media only screen and (min-width: 768px) {
+  header h1 {position: absolute; float: none; margin-left: 0; margin-top: 0}
+}
+
+@media only screen and (min-width: 1024px) {
+}
