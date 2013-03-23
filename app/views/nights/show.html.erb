@@ -25,4 +25,9 @@
 
 <section id="invites" class="column">
     <h3>Invite your friends to join <%= @night.name %></h3>
+    <ul>
+        <% for friend in current_user.friends do %>
+            <li><%= friend.name %><%= link_to "Add friend to #{@night.name}", "#", :class=> "btn" %></li>
+        <% end %>
+    </ul>
 </section>
