@@ -194,5 +194,29 @@ describe "Nights" do
 
     end
 
+        it "offers an option to add as-a-friend-and-invite to a Game Night, then adds the friendship, but does not make them a player of that Game Night yet" do
+          login(user1)
+
+          night1
+          night1.users << user1
+
+          user2
+
+          visit night_path(night1)
+
+          fill_in "email", :with => user2.email
+          click_button("search_for_user")
+
+          page.should have_content(user2.name)
+
+          click_button("add_friend_and_invite_to_night")
+
+          visit night_path(night1)
+
+          page.should_not have_css("#night_player_list_#{user2.id}")
+          page.should have_css("#add_player_id_#{user2.id}")
+
+        end
+
   end
 end
