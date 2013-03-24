@@ -87,4 +87,27 @@ class NightsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # POST /nights/1
+  # POST /nights/1.json
+  def add_players
+    @night = Night.find(params[:night_id])
+
+    params[:add_player_id].keys.each do |p|
+      @player = User.find_by_id(p)
+      if !@night.users.include? @player
+        @night.users << @player
+      end
+    end
+
+    respond_to do |format|
+      if @night.save
+        format.html { redirect_to @night, notice: 'New member successfully added.' }
+        format.json { render json: @night, status: :created }
+      else
+        format.html { redirect_to @night, notice: 'Error adding member to Game Night.' }
+        format.json { render json: @night.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end
