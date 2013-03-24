@@ -30,3 +30,12 @@ Things to do after cloning GameNight
 * rake db:migrate and rake db:migrate RAILS_ENV="test"
 * guard
 * Update initial settings in /config/settings.yml and each setting file in /config/settings/*.yml
+
+
+DEVELOPMENT TO DO
+-----------------
+
+* Auto-delete game night if user is the last person to leave
+* AJAXy add-players functionality where a user clicks to highlight any of their friends they want to add to the game night, then click submit to add them all at once.
+* Set up ability to refuse or ignore being added to game nights
+* Add ability to ignore players
