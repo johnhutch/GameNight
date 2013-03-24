@@ -22,16 +22,6 @@ Things to do on Game Night:
     * Invite friends to a Game Night
     * View all games availabe for a Game Night
 
-Current version: Rails 3.2.8
-
-Things to do after cloning GameNight
---------------------------------------------
-
-* rake db:migrate and rake db:migrate RAILS_ENV="test"
-* guard
-* Update initial settings in /config/settings.yml and each setting file in /config/settings/*.yml
-
-
 DEVELOPMENT TO DO
 -----------------
 
