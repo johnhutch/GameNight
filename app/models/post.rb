@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :night
-  has_many :comments, :as => :parent
-  has_many :photos, :as => :owner
+  has_many :comments, :as => :parent, :dependent => :destroy
+  has_many :photos, :as => :owner, :dependent => :destroy
   
   accepts_nested_attributes_for :photos, :reject_if => lambda { |a| a[:image].blank? }, :allow_destroy => true
 
