@@ -10,4 +10,12 @@ class Night < ActiveRecord::Base
         end
         game_arr.inject(game_arr.first) { |f,x| f = f | x }
     end
+
+    def owner
+      if self.users.count == 1
+        self.users.first
+      else
+        User.new
+      end 
+    end
 end

@@ -2,15 +2,19 @@
 <h2><%= @night.name %></h2>
 
 <section id="night_admin" class="admin controls">
-<%= link_to '<i class="icon-edit icon-white"></i> Edit This Game Night'.html_safe, edit_night_path(@night), :class => "btn btn-primary" %>
+  <%= link_to edit_night_path(@night), :class => "btn btn-primary", :id => "edit_night" do %>
+    <i class="icon-edit icon-white"></i> Edit This Game Night
+  <% end %>
+
   <% if @night.users.count > 1 %>
-    <p class="btn disabled"><i class="icon-remove-circle"></i> Delete Game Night</p>
+    <p class="btn disabled" id="delete_night_inactive"><i class="icon-remove-circle"></i> Delete Game Night</p>
     <small>You can't delete a game night that still has players!</small>
   <% else %>
-    <%= link_to night_path(@night), :class => "btn btn-danger", :method => "delete", :confirm => "Are you sure you want to delete this game night?"  do %>
+    <%= link_to night_path(@night), :class => "btn btn-danger", :method => "delete", :confirm => "Are you sure you want to delete this game night?", :id => "delete_night_active" do %>
       <i class="icon-remove-circle icon-white"></i> Delete Game Night
     <% end %>
   <% end %>
+
 </section>
 
 <section id="night_players" class="column">

@@ -31,6 +31,7 @@ class Ability
     can :destroy, Friendship, :user_id => @user.id
     can [:create, :add_players], Night
     can [:read, :update], Night, :users => { :id => @user.id } # only if the user belongs to that Game Night
+    can [:destroy], Night, :owner => { :id => @user.id } 
     can [:search, :invite, :friend_request], User
   end
 

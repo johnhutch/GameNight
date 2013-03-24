@@ -219,4 +219,36 @@ describe "Nights" do
 #    end
 
   end
+
+  let(:user1_ability) { Ability.new(user1) }
+  let(:user2_ability) { Ability.new(user2) }
+
+  describe "destroy abilities" do
+    it "should not let a user delete a gamenight with more than one user attached to it" do 
+      login(user1)
+
+      night1
+      night1.users << user1
+      night1.users << user2
+
+      visit night_path(night1)
+      page.should have_css("#delete_night_inactive")
+      page.should_not have_css("#delete_night_active")
+
+      user1_ability.should_not be_able_to(:destroy, night1)
+    end
+
+    it "should let a user delete a gamenight with only themselves attached to it" do
+      login(user1)
+
+      night1
+      night1.users << user1
+
+      visit night_path(night1)
+      page.should_not have_css("#delete_night_inactive")
+      page.should have_css("#delete_night_active")
+
+      user1_ability.should be_able_to(:destroy, night1)
+    end
+  end
 end
