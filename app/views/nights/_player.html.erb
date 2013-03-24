@@ -1,0 +1,5 @@
+<% if player == current_user %>
+    <li>You</li>
+<% else %>
+    <li><%= link_to player.name, player, :id => "night_player_list_#{player.id}" %></li>
+<% end %>
