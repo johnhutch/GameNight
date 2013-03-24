@@ -8,9 +8,8 @@
             <% if @night.nil? %>
                 <%= link_to t('links.add_friend'), friendships_path(:friend_id => user), :method => :post, :class => "btn" %>
             <% else %>
-                <%= link_to "Add friend and invite to #{@night.name}", "#", :class => "btn" %>
+                <%= link_to "Add friend and invite to #{@night.name}", "#", :class => "btn", :id => "add_friend_and_invite_to_night" %>
             <% end %>
         <% end %>
     <% end %>
 </div>
-

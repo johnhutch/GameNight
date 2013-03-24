@@ -59,7 +59,7 @@
             <%= label_tag "Enter your friend's email address" %>
             <%= text_field_tag :email, nil, :placeholder => "joe@blow.com", :required => "required" %>
             <%= hidden_field_tag :night_id, @night.id %>
-            <%= submit_tag "Search", :class => "btn" %> 
+            <%= submit_tag "Search", :class => "btn", :id => "search_for_user" %> 
         <% end %>
     </div>
 </section>
