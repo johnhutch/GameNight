@@ -32,6 +32,7 @@ Tinder::Application.routes.draw do
 
     resources :nights do
         resources :posts #, controllers: {nights: "nights"}
+        put :add_players
     end
 
     # content routes

@@ -5,11 +5,10 @@
                     <% if user == current_user %>
                         <li>You</li>
                     <% else %>
-                        <li><%= link_to user.name, user %></li>
+                        <li><%= link_to user.name, user, :id => "night_player_list_#{user.id}" %></li>
                     <% end %>
                 <% end %> 
             </ul>
 <% else %>
-    <p>Add some friends to your game night</p>
+    <p>Add some friends to you're game night</p>
 <% end %>
-

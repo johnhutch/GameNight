@@ -136,5 +136,28 @@ describe "Nights" do
           page.should have_content("A Sample Game Night Post Title")
         end
 
+        it "should update the member list after adding a friend to the Game Night" do
+          login(user1)
+
+          @friendship = user1.friendships.build(:friend_id => user2.id)
+          @friendship.save!
+
+          @friendship2 = user1.friendships.build(:friend_id => user3.id)
+          @friendship2.save!
+
+          night1
+          night1.users << user1
+
+          visit night_path(night1)
+
+          check("add_player_id[#{user3.id}]")
+
+          click_button("add_players_to_night")
+
+          visit night_path(night1)
+
+          page.should have_css("#night_player_list_#{user3.id}")
+        end
+
   end
 end
