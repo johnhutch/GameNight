@@ -25,10 +25,19 @@
 </section>
 
 <section id="games" class="games column">
-    <h3>Your Game Night's collection</h3>
+    <h3><%= @night.name %>'s game collection</h3>
     <ul>
         <% for game in night_game_union(@night) do %>
             <li><%= game.name %></li>
+        <% end %>
+    </ul>
+</section>
+
+<section id="invites" class="column">
+    <h3>Invite your friends to join <%= @night.name %></h3>
+    <ul>
+        <% for friend in current_user.friends do %>
+            <li><%= friend.name %><%= link_to "Add friend to #{@night.name}", "#", :class=> "btn" %></li>
         <% end %>
     </ul>
 </section>
