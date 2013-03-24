@@ -1,1 +1,7 @@
-<li><%= link_to post_preview.title, post_preview %></li>
+<div class="post_preview">
+  <%= link_to post_preview do %>
+    <h4><%= post_preview.title %></h4>
+    <p><%= truncate(post_preview.body, :length => 200, :omission => '...') %></p>
+    <%= render :partial => "posts/byline", :object => post_preview %>
+  <% end %>
+</div>

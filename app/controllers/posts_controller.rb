@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    current_user.posts.build(params[:post])
+    @post = current_user.posts.build(params[:post])
 
     respond_to do |format|
       if @post.save

@@ -116,6 +116,7 @@ describe "Nights" do
           page.should have_content("A Sample Game Night Post Title")
           page.should have_content("A Sample Game Night Photo Title")
           page.should have_content("this is the photo caption that belongs to game night")
+          page.should_not have_content ("Posted by No Name")
           page.should have_xpath("//img[contains(@src,\"hutchhead.png\")]") 
         end
         

@@ -1,6 +1,6 @@
 <article id="post">
   <h3><%= @post.title %></h3>
-  <div id="byline">Posted by <%= @post.user.name || @post.user.email rescue "No Name" %></div>
+  <%= render :partial => "byline", :object => @post %>
   
   <% for photo in @post.photos %>
     <h4><%= photo.title %></h4>

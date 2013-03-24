@@ -22,7 +22,9 @@
     <p>This Game Night has no blog posts yet.</p>
   <% end %>
 
-  <%= render :partial => 'posts/post_preview', :collection => @night.posts %>
+  <div id="blog_posts">
+    <%= render :partial => 'posts/post_preview', :collection => @night.posts %>
+  </div>
 </section>
 
 <section id="games" class="games column">
