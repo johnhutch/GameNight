@@ -68,8 +68,8 @@ ul#games {margin: 0; padding: 0; list-style-type: none;
 /**** NIGHT LANDING PAGE ****/
 #blog_posts {border-top: 1px solid $default-border-color; margin: 1em 0;}
 .post_preview {
-  a {display: block; padding: .4em; text-align: left; color: #333; border-bottom: 1px solid $default-border-color;
-    &:hover {text-decoration: none; background-color: #eee; color: $btnPrimaryBackground;}
+  a {display: block; padding: .4em; text-align: left; color: #333; border: 1px solid white; border-bottom-color: $default-border-color;
+    &:hover {text-decoration: none; @include gradient-vertical(#fefefe, #eee); color: $btnPrimaryBackground; border-left-color: $default-border-color; border-right-color: $default-border-color;}
     +first-child {border-top-width: 1px;}
   }
   h4 {margin: 0; display: inline-block; font-size: 1.1em;}
