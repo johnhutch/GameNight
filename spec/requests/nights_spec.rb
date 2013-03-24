@@ -176,5 +176,23 @@ describe "Nights" do
           page.should have_css("#night_player_list_#{user3.id}")
         end
 
+        it "should not show an invite form if all of your friends are members of the Game Night" do
+          login(user1)
+
+          @friendship = user1.friendships.build(:friend_id => user2.id)
+          @friendship.save!
+
+          @friendship2 = user1.friendships.build(:friend_id => user3.id)
+          @friendship2.save!
+
+          night1
+          night1.users << user1
+          night1.users << user2
+          night1.users << user3
+
+          page.should_not have_css("#add_players_to_night")
+
+        end
+
   end
 end
