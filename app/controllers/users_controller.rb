@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 
   def search
     @users = User.find_by_sql("SELECT * FROM users WHERE email='" + params[:email] + "';")
+    @night = Night.find_by_id(params[:night_id]) rescue nil
     @email = params[:email]
 
     respond_to do |format|

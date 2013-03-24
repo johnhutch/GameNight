@@ -47,8 +47,8 @@
 </section>
 
 <section id="invites" class="column">
-    <h3>Invite your friends to join <%= @night.name %></h3>
     <% unless (current_user.friends & @night.users).size == current_user.friends.size %>
+    <h3>Invite to join <%= @night.name %> from your friends list</h3>
         <%= form_for @night, :url => night_add_players_path(@night) do |f| %>
         <ul>
             <% for player in current_user.friends do %>
@@ -60,4 +60,13 @@
         <%= f.submit "Add friend(s) to #{@night.name}", :class => "btn", :id => "add_players_to_night" %>
         <% end %>
     <% end %>
+    <div class="friend_search clearfix">
+        <h3>Invite new friends to join <%= @night.name %> by e-mail</h3>
+        <%= form_tag search_users_path do %>
+            <%= label_tag "Enter your friend's email address" %>
+            <%= text_field_tag :email, nil, :placeholder => "joe@blow.com", :required => "required" %>
+            <%= hidden_field_tag :night_id, @night.id %>
+            <%= submit_tag "Search", :class => "btn" %> 
+        <% end %>
+    </div>
 </section>

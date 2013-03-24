@@ -3,8 +3,13 @@
         <% if current_user.friends.include?(user) %>
             <p>You are friends with <%= user.name %></p>
             (<%= link_to t('links.remove_friend'), associated_friendship(user), :method => :delete %>)
+            <% unless @night.nil? %><%= link_to "Add to #{@night.name}", "#", :class => "btn" %><% end %>
         <% else %>
-            <%= link_to t('links.add_friend'), friendships_path(:friend_id => user), :method => :post, :class => "btn" %>
+            <% if @night.nil? %>
+                <%= link_to t('links.add_friend'), friendships_path(:friend_id => user), :method => :post, :class => "btn" %>
+            <% else %>
+                <%= link_to "Add friend and invite to #{@night.name}", "#", :class => "btn" %>
+            <% end %>
         <% end %>
     <% end %>
 </div>
