@@ -48,7 +48,7 @@
                               <li class="dropdown">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Roll For Initiative<b class="caret"></b></a>
                                   <ul class="dropdown-menu">
-                                      <%= link_to "Create a game night", new_night_path %></li>
+                                      <li><%= link_to "Create a game night", new_night_path %></li>
                                       <% if current_user.role? :admin %>
                                       <li class="divider"></li>
                                       <li class="nav-header">Admin</li>
