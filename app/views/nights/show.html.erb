@@ -14,22 +14,26 @@
 <%= render :partial => 'nights/playerlist', :locals => {:night => @night} %>
 
 <section id="blog" class="blog column">
-    <h3>News and updates for <%= @night.name%></h3>
-    <%= link_to "New blog post", new_night_post_path(@night), :class => "btn" %>
-    <% if @night.posts.blank? %>
-		<p>This Game Night has no blog posts yet.</p>
-	<% end %>
-  <ul>
-    <%= render :partial => 'posts/post_preview', :collection => @night.posts %>
-  </ul>
+  <h3>News and updates for <%= @night.name%></h3>
+
+  <%= link_to '<i class="icon-plus icon-white"></i> New blog post'.html_safe, new_night_post_path(@night), :class => 'btn btn-success' %>
+
+  <% if @night.posts.blank? %>
+    <p>This Game Night has no blog posts yet.</p>
+  <% end %>
+
+  <%= render :partial => 'posts/post_preview', :collection => @night.posts %>
 </section>
 
 <section id="games" class="games column">
     <h3><%= @night.name %>'s game collection</h3>
+
+    <% if @night.owned_games.blank? %>
+      <p>No one in this game night has any games! Seriously, guys? <em>No games?</em></p>
+    <% end %>
+
     <ul>
-        <% for game in night_game_union(@night) do %>
-            <li><%= game.name %></li>
-        <% end %>
+      <%= render :partial => 'games/game_card', :collection => @night.owned_games %>
     </ul>
 </section>
 
