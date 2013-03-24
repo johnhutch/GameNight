@@ -8,7 +8,9 @@
         <% for night in current_user.nights do %>
             <li class="game">
                 <h4><%= link_to night.name, night %></h4>
-                <%= render :partial => 'nights/playerlist', :locals => {:night => night} %>
+                <ul>
+                  <%= render :partial => 'nights/player', :collection => night.users %>
+                </ul>
                 <%= link_to "View more", night, :class => "btn btn-primary" %>
                 <%= link_to t('links.remove_night'), night_path(night), :method => :delete, :confirm => "Are you sure you want to leave #{night.name}? If you are the last player to leave, the night will be deleted from our systems.", :class => "delete btn btn-danger" %>
             </li>
