@@ -1,25 +1,23 @@
-            <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
-                <h1>Game Night!</h1>
-                <p>Game Night is a Web application for planning, tracking, and maintaining your weekly or monthly board game nights.</p>
-                <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-            </div>
+<div class="hero-unit">
+    <h1>Make It A <em>Game Night</em></h1>
+    <p>Game Night is a Web application for planning, tracking, and maintaining your weekly or monthly board game nights.</p>
+    <p><a class="btn btn-primary btn-large">Get Started <i class="icon-circle-arrow-right icon-white"></i></a></p>
+</div>
 
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-               </div>
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
-            </div>
+<section id="blog" class="blog">
+  <h2>Posts</h2>
+  <% Post.all.each do |post| %>
+    <article id="post_#{post.id}" class="post">
+      <h3><%= post.title %></h3>
+      <%= markdown post.body %>
+      <p class="readmore"><%= link_to 'Read More', post %></p>
+    </article>
+  <% end %>
+
+  <%= "<p>No one has posted anything yet.</p>".html_safe unless @posts.present? %></p>
+</section>
+
+<%=
+  readme = File.open(Rails.root + "README.md")
+  (render :text => markdown(readme.read)).html_safe
+%>
