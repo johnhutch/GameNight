@@ -42,7 +42,9 @@
     <%= form_for @night, :url => night_add_players_path(@night) do |f| %>
     <ul>
         <% for player in current_user.friends do %>
-            <li><%= check_box_tag("add_player_id[#{player.id}]") %><%= label_tag("add_player_id[#{player.id}]", player.name) %></li>
+            <% unless @night.users.include?(player) %>
+                <li><%= check_box_tag("add_player_id[#{player.id}]") %><%= label_tag("add_player_id[#{player.id}]", player.name) %></li>
+            <% end %>
         <% end %>
     </ul>
     <%= f.submit "Add friend(s) to #{@night.name}", :class => "btn", :id => "add_players_to_night" %>
