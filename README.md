@@ -39,3 +39,5 @@ DEVELOPMENT TO DO
 * AJAXy add-players functionality where a user clicks to highlight any of their friends they want to add to the game night, then click submit to add them all at once.
 * Set up ability to refuse or ignore being added to game nights
 * Add ability to ignore players
+* Ability errors not showing up on homepage?
+* Add bootstrap-y notifications (see Tinder)
