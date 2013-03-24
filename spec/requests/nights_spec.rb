@@ -33,6 +33,22 @@ describe "Nights" do
         end
     end
 
+    describe "EDIT /night/:id" do 
+      it "player can edit a game night" do
+        login(user1)
+
+        night1
+        night1.users << user1
+
+        visit night_path(night1)
+        click_link("Edit This Game Night")
+        fill_in "Name", :with => "New Game Night Title"
+        click_button "Update Night"
+        page.should have_content("successfully updated")
+        page.should have_content("New Game Night Title")
+      end
+    end
+
     describe "SHOW /night/:id" do
 
         it "should not allow a user to see a Game Night if they are not a member" do

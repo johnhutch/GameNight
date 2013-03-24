@@ -24,7 +24,7 @@ gem 'omniauth-facebook'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
-gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
+gem 'nested_form'
 gem 'rails_config'
 gem 'stamp'
 gem "rails3-jquery-autocomplete"
