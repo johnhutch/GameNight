@@ -4,7 +4,7 @@
 <section id="night_admin" class="admin controls">
 <%= link_to '<i class="icon-edit icon-white"></i> Edit This Game Night'.html_safe, edit_night_path(@night), :class => "btn btn-primary" %>
   <% if @night.users.count > 1 %>
-    <%= link_to '<i class="icon-remove-circle icon-white"></i> Delete Game Night', night_path(@night), :class => "btn btn-danger", :method => "delete", :confirm => "Are you sure you want to delete this game night?" %>
+    <%= link_to '<i class="icon-remove-circle icon-white"></i> Delete Game Night'.html_safe, night_path(@night), :class => "btn btn-danger", :method => "delete", :confirm => "Are you sure you want to delete this game night?" %>
   <% else %>
     <p class="btn disabled"><i class="icon-remove-circle"></i> Delete Game Night</p>
     <small>You can't delete a game night that still has players!</small>
