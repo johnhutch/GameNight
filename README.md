@@ -22,16 +22,6 @@ Things to do on Game Night:
     * Invite friends to a Game Night
     * View all games availabe for a Game Night
 
-Current version: Rails 3.2.8
-
-Things to do after cloning GameNight
---------------------------------------------
-
-* rake db:migrate and rake db:migrate RAILS_ENV="test"
-* guard
-* Update initial settings in /config/settings.yml and each setting file in /config/settings/*.yml
-
-
 DEVELOPMENT TO DO
 -----------------
 
@@ -39,3 +29,5 @@ DEVELOPMENT TO DO
 * AJAXy add-players functionality where a user clicks to highlight any of their friends they want to add to the game night, then click submit to add them all at once.
 * Set up ability to refuse or ignore being added to game nights
 * Add ability to ignore players
+* Ability errors not showing up on homepage?
+* Add bootstrap-y notifications (see Tinder)
