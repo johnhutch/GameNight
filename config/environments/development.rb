@@ -23,13 +23,12 @@ Tinder::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-  # Do not compress assets
   config.assets.compress = false
+  config.assets.debug = true
+  config.sass.debug_info = true
+  config.sass.line_comments = false # source maps don't get output if this is true
 
-  # Expands the lines which load the assets
-  config.assets.debug = false
-  
-# Raise exception on mass assignment protection for Active Record models
+  # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 
   # Log the query plan for queries taking more than this (works
